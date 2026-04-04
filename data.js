@@ -9,6 +9,7 @@ const WIKI_DATA = {
     // ── ГЛАВНЫЕ ГЕРОИ (group: "hero") ──────────────────────
     {
       id: "oleshka", portrait: "portraits/OLESHKA.jpg",
+      portrait: "portraits/OLESHKA.jpg",
       name: "Олешка",
       fullName: "Олешка, сын Добромира",
       role: "Главный герой · Росс · 14 лет",
@@ -34,6 +35,7 @@ const WIKI_DATA = {
     },
     {
       id: "sanko",
+      portrait: "portraits/SANKO.jpg",
       name: "Санко",
       fullName: "Санко из Славонии",
       role: "Лучший друг · Славон · 13 лет",
@@ -74,6 +76,7 @@ const WIKI_DATA = {
     },
     {
       id: "ratsha",
+      portrait: "portraits/RATSHA.jpg",
       name: "Ратша",
       fullName: "Ратша (Вороненок)",
       role: "Друг · Росс · 14 лет",
@@ -183,6 +186,7 @@ const WIKI_DATA = {
     },
     {
       id: "flamen", portrait: "portraits/FLAMEN.jpg",
+      portrait: "portraits/FLAMEN.jpg",
       name: "Магистр Фламен",
       fullName: "Магистр Бернард Фламен",
       role: "Учитель · Магия стихий",
@@ -1204,6 +1208,7 @@ const WIKI_DATA = {
     // ── НПС (group: "npc") ──────────────────────────────────
     {
       id: "dobromyr",
+      portrait: "portraits/DOBROMIR.jpg",
       name: "Добромир",
       fullName: "Великий Князь Добромир",
       role: "Великий Князь Роси · Отец Олешки",
@@ -1242,6 +1247,7 @@ const WIKI_DATA = {
     },
     {
       id: "sineoka",
+      portrait: "portraits/SINEOKA.jpg",
       name: "Синеока",
       fullName: "Синеока",
       role: "Сестра Олешки · 9 лет",
@@ -1349,6 +1355,7 @@ const WIKI_DATA = {
     },
     {
       id: "bozhydar",
+      portrait: "portraits/BOZHIDAR.jpg",
       name: "Кесарь Божидар",
       fullName: "Кесарь Божидар",
       role: "Правитель Славонии",
