@@ -45,7 +45,7 @@ const WIKI_DATA = {
         { id: "yarko", label: "добрый друг" },
         { id: "ratsha", label: "напряжённые отношения" },
         { id: "vlastoyar", label: "отец (узнал позже)" },
-        { id: "elina", portrait: "portraits/ELINA.jpg", label: "как младшая сестрёнка" },
+        { id: "elina", portrait: "portraits/SANKO.jpg", label: "как младшая сестрёнка" },
         { id: "ruman", label: "доверяет дару" }
       ],
       description: "Сирота из Славонии, из племени древлян. Жил в лесах с дедом. Тёмные волосы, тёмно-карие глаза, жилистый. Зелёная туника, нож за поясом, руки всегда в земле. Лучший в Академии по зельеварению и травоведению.",
@@ -84,7 +84,7 @@ const WIKI_DATA = {
         { id: "oleshka", label: "друг" },
         { id: "sanko", label: "напряжённые отношения" },
         { id: "yarko", label: "живут в одной келье" },
-        { id: "horobor", portrait: "portraits/HOROBOR.jpg", label: "бывший хозяин" }
+        { id: "horobor", portrait: "portraits/RATSHA.jpg", label: "бывший хозяин" }
       ],
       description: "Сирота-росс, бывший слуга тёмного вольха Хоробора. Растрёпанные чёрные волосы, чёрные глаза. Угрюм, замкнут, но беззаветно предан друзьям. Умеет превращаться в вороненка — для этого нужно особое перо.",
       details: "Способности: оборотничество в вороненка, магия стихий (снежный смерч, ливень, огонь), создание иллюзий, чутьё на тёмную магию. Питомец — огромный белый пёс Буран (южнорусская овчарка). Живёт в келье с Ярко. Внутренняя борьба с влиянием Хоробора.",
@@ -100,8 +100,10 @@ const WIKI_DATA = {
       nation: "kusht",
       tags: ["кушты", "академия", "чутьё", "пустыня", "верблюд"],
       relations: [
-        { id: "oleshka", label: "друг" },
-        { id: "elina", label: "сестра" }
+        { id: "oleshka",
+    portrait: "portraits/OLESHKA.jpg", label: "друг" },
+        { id: "elina",
+    portrait: "portraits/ELINA.jpg", label: "сестра" }
       ],
       description: "Тихий, вдумчивый кушт. Сын каравана — с сестрой водил верблюжьи обозы через пустыню Эрг до Идрии. Обладает даром чувствовать скрытое под землёй. Верблюд — Кашан.",
       details: "Первым почувствовал «вздохи» древнего зла в подземельях под Академией. В бане охотно рассказывает истории. Дружелюбный слушатель. Дружит с сестрой Элиной.",
@@ -129,6 +131,7 @@ const WIKI_DATA = {
     // ── УЧИТЕЛЯ (group: "teacher") ─────────────────────────
     {
       id: "svetozar",
+    portrait: "portraits/SVETOZAR.jpg",
       name: "Светозар Мудрый",
       fullName: "Светозар Мудрый, настоятель Академии",
       role: "Настоятель Академии · Маг времени",
@@ -145,6 +148,7 @@ const WIKI_DATA = {
     },
     {
       id: "arboris",
+    portrait: "portraits/ARBORIS.jpg",
       name: "Арборис",
       fullName: "Арборис, учитель травоведения",
       role: "Учитель · Травоведение · 25 лет",
@@ -160,6 +164,7 @@ const WIKI_DATA = {
     },
     {
       id: "vlastoyar",
+    portrait: "portraits/VLASTOYAR.jpg",
       name: "Властояр Бешеный",
       fullName: "Воевода Властояр Бешеный",
       role: "Воевода · Боевые искусства",
@@ -495,6 +500,7 @@ const WIKI_DATA = {
     // ── УЧЕНИКИ КЛАССА СИМЕОНА (group: "student") ───────────
     {
       id: "turka",
+    portrait: "portraits/TURKA.jpg",
       name: "Турка",
       fullName: "Турхан ибн Фаррухзад ал-Кушти",
       role: "Соперник · Кушт · 15 лет",
@@ -1112,6 +1118,7 @@ const WIKI_DATA = {
     },
     {
       id: "eyrik",
+    portrait: "portraits/EIRIK-4.jpg",
       name: "Эйрик",
       fullName: "Эйрик",
       role: "Плотник · Нордунг · 40 лет",
@@ -1151,6 +1158,7 @@ const WIKI_DATA = {
     },
     {
       id: "gostimir",
+    portrait: "portraits/GOSTIMIR-2.jpg",
       name: "Гостимир",
       fullName: "Гостимир",
       role: "Лесоруб и охотник · Из Торжка · 40 лет",
@@ -1164,6 +1172,7 @@ const WIKI_DATA = {
     },
     {
       id: "zhyvana",
+    portrait: "portraits/ZHIVANA-3.jpg",
       name: "Живана",
       fullName: "Живана",
       role: "Кухарка и швея · Из Торжка · 35 лет",
@@ -1177,6 +1186,7 @@ const WIKI_DATA = {
     },
     {
       id: "esenya",
+    portrait: "portraits/ESENYA.jpg",
       name: "Есеня",
       fullName: "Есеня",
       role: "Домовёнок Академии · 6 лет",
@@ -1205,7 +1215,7 @@ const WIKI_DATA = {
         { id: "ladoslava", label: "жена" },
         { id: "sineoka", label: "дочь" },
         { id: "vlastoyar", label: "бывший воевода" },
-        { id: "bozhydar", portrait: "portraits/BOZHIDAR.jpg", label: "побратим" }
+        { id: "bozhydar", portrait: "portraits/DOBROMIR.jpg", label: "побратим" }
       ],
       description: "Благородный мужчина ~35 лет с седеющей бородой в богатой одежде. Строгий, справедливый. Великий Князь Роси. Исчез во время охоты — подстрелен тёмным вольхом Хоробором по заданию «Мечника».",
       details: "Правит из Златограда. Перстень его власти пропал после засады. Ладослава ищет помощи у вольха Всемысла.",
@@ -1213,6 +1223,7 @@ const WIKI_DATA = {
     },
     {
       id: "ladoslava",
+    portrait: "portraits/LADOSLAVA.jpg",
       name: "Ладослава",
       fullName: "Княгиня Ладослава",
       role: "Мать Олешки · Княгиня Роси",
@@ -1222,7 +1233,8 @@ const WIKI_DATA = {
       relations: [
         { id: "oleshka", label: "сын" },
         { id: "dobromyr", label: "муж" },
-        { id: "sineoka", label: "дочь" }
+        { id: "sineoka",
+    portrait: "portraits/SINEOKA.jpg", label: "дочь" }
       ],
       description: "Красивая высокая женщина. Мать Олешки. Любит петь, нежная. Послала письмо Светозару о пропаже мужа. Ездила к вольху Всемыслу в Старград молиться о Добромире.",
       details: "",
@@ -1245,6 +1257,7 @@ const WIKI_DATA = {
     },
     {
       id: "mstislav",
+    portrait: "portraits/MSTISLAV.jpg",
       name: "Мстислав",
       fullName: "Кнеж Мстислав",
       role: "Правитель борусков · Дядя Ярко",
@@ -1293,6 +1306,7 @@ const WIKI_DATA = {
     },
     {
       id: "bogumyr",
+    portrait: "portraits/BOGUMIR.jpg",
       name: "Богумир",
       fullName: "Вольх Богумир",
       role: "Вольх · Добрый союзник",
@@ -1321,6 +1335,7 @@ const WIKI_DATA = {
     },
     {
       id: "vsemysl",
+    portrait: "portraits/VSEMYSL.jpg",
       name: "Всемысл",
       fullName: "Вольх Всемысл",
       role: "Мудрый вольх из Старграда",
