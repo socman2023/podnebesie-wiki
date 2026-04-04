@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Вики мира Поднебесья — персонажи, места, народы, боги, праздники, сюжетные линии, академия, жречество и словарь">
+  <title>Поднебесье — Вики мира</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ═══════════════ HEADER ═══════════════ -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="logo-group">
+        <!-- SVG Logo: stylised sky-dome symbol -->
+        <svg class="logo-svg" viewBox="0 0 36 36" fill="none" aria-label="Поднебесье" role="img" width="36" height="36">
+          <circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+          <path d="M6 22 Q18 6 30 22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <line x1="18" y1="6" x2="18" y2="30" stroke="currentColor" stroke-width="1" opacity="0.35" stroke-dasharray="2 3"/>
+          <circle cx="18" cy="14" r="3" fill="currentColor" opacity="0.85"/>
+          <path d="M11 22 L18 18 L25 22" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-title">Поднебесье</span>
+          <span class="logo-sub">Арборея · Мир магии</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="search-toggle-btn" id="searchToggle" aria-label="Поиск" title="Открыть поиск">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" data-theme-toggle aria-label="Переключить тему">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Search Bar (collapsible) -->
+    <div class="search-bar-wrap" id="searchBarWrap">
+      <div class="search-inner">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" id="searchInput" class="search-input" placeholder="Найти персонажа, место, слово…" autocomplete="off" autocorrect="off" spellcheck="false">
+        <button class="search-clear" id="searchClear" aria-label="Очистить поиск" style="display:none">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <!-- Tag Pills -->
+      <div class="tag-pills" id="tagPills" role="list" aria-label="Фильтры по тегам"></div>
+    </div>
+  </header>
+
+  <!-- ═══════════════ TAB NAV ═══════════════ -->
+  <nav class="tab-nav" role="tablist" aria-label="Разделы вики">
+    <button class="tab-btn active" role="tab" aria-selected="true"  data-tab="characters" aria-controls="section-characters">Персонажи</button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-tab="places"     aria-controls="section-places">Места</button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-tab="nations"    aria-controls="section-nations">Народы</button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-tab="gods"       aria-controls="section-gods">Боги</button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-tab="holidays"   aria-controls="section-holidays">Праздники</button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-tab="plotlines"  aria-controls="section-plotlines">Сюжет</button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-tab="academy"    aria-controls="section-academy">Академия</button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-tab="clergy"     aria-controls="section-clergy">Жречество</button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-tab="map"       aria-controls="section-map">🗺 Карта</button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-tab="glossary"   aria-controls="section-glossary">Словарь</button>
+  </nav>
+
+  <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+  <main class="main-content" id="mainContent">
+
+    <!-- SEARCH RESULTS (overlay) -->
+    <section class="search-results hidden" id="searchResults" aria-label="Результаты поиска">
+      <h2 class="section-title">Результаты поиска</h2>
+      <div class="results-grid" id="resultsGrid"></div>
+    </section>
+
+    <!-- ПЕРСОНАЖИ -->
+    <section class="tab-section active" id="section-characters" role="tabpanel" aria-labelledby="tab-characters">
+      <h2 class="section-title">Персонажи</h2>
+
+      <div class="char-group">
+        <h3 class="group-label">Главные герои</h3>
+        <div class="cards-grid" id="grid-heroes"></div>
+      </div>
+
+      <div class="char-group">
+        <h3 class="group-label">Учителя Академии</h3>
+        <div class="cards-grid" id="grid-teachers"></div>
+      </div>
+
+      <div class="char-group">
+        <h3 class="group-label">Класс Арбориса</h3>
+        <div class="students-grid" id="grid-class-arboris"></div>
+      </div>
+
+      <div class="char-group">
+        <h3 class="group-label">Класс Брина</h3>
+        <div class="students-grid" id="grid-class-brin"></div>
+      </div>
+
+      <div class="char-group">
+        <h3 class="group-label">Класс Симеона</h3>
+        <div class="students-grid" id="grid-class-simeon"></div>
+      </div>
+
+      <div class="char-group">
+        <h3 class="group-label">Персонал Академии</h3>
+        <div class="cards-grid" id="grid-staff"></div>
+      </div>
+
+      <div class="char-group">
+        <h3 class="group-label">Ключевые НПС</h3>
+        <div class="cards-grid" id="grid-npcs"></div>
+      </div>
+    </section>
+
+    <!-- МЕСТА -->
+    <section class="tab-section" id="section-places" role="tabpanel" aria-labelledby="tab-places">
+      <h2 class="section-title">Места</h2>
+      <div class="cards-grid" id="grid-places"></div>
+    </section>
+
+    <!-- НАРОДЫ -->
+    <section class="tab-section" id="section-nations" role="tabpanel" aria-labelledby="tab-nations">
+      <h2 class="section-title">Народы Поднебесья</h2>
+      <div class="nations-list" id="grid-nations"></div>
+    </section>
+
+    <!-- БОГИ -->
+    <section class="tab-section" id="section-gods" role="tabpanel" aria-labelledby="tab-gods">
+      <h2 class="section-title">Боги &amp; Пантеоны</h2>
+      <div class="gods-content" id="grid-gods"></div>
+    </section>
+
+    <!-- ПРАЗДНИКИ -->
+    <section class="tab-section" id="section-holidays" role="tabpanel" aria-labelledby="tab-holidays">
+      <h2 class="section-title">Праздники &amp; Обряды</h2>
+      <div class="holidays-list" id="grid-holidays"></div>
+    </section>
+
+    <!-- СЮЖЕТ -->
+    <section class="tab-section" id="section-plotlines" role="tabpanel" aria-labelledby="tab-plotlines">
+      <h2 class="section-title">Сюжетные линии</h2>
+      <div class="plot-list" id="grid-plotlines"></div>
+    </section>
+
+    <!-- АКАДЕМИЯ -->
+    <section class="tab-section" id="section-academy" role="tabpanel" aria-labelledby="tab-academy">
+      <h2 class="section-title">Академия</h2>
+
+      <!-- Hero block -->
+      <div class="academy-hero" id="academy-hero-block"></div>
+
+      <!-- Classes summary -->
+      <div class="char-group">
+        <h3 class="group-label">Классы</h3>
+        <div class="cards-grid" id="academy-classes-grid"></div>
+      </div>
+
+      <!-- Locations -->
+      <div class="char-group">
+        <h3 class="group-label">Места Академии</h3>
+        <div class="cards-grid location-grid" id="academy-locations-grid"></div>
+      </div>
+
+      <!-- Courses accordion -->
+      <div class="char-group">
+        <h3 class="group-label">Курсы</h3>
+        <div class="courses-accordion" id="academy-courses"></div>
+      </div>
+
+      <!-- Schedule -->
+      <div class="char-group">
+        <h3 class="group-label">Недельное расписание</h3>
+        <div class="schedule-wrap">
+          <table class="schedule-table" id="academy-schedule"></table>
+        </div>
+      </div>
+
+      <!-- Menu -->
+      <div class="char-group">
+        <h3 class="group-label">Недельное меню</h3>
+        <div class="schedule-wrap">
+          <table class="menu-table" id="academy-menu"></table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ЖРЕЧЕСТВО -->
+    <section class="tab-section" id="section-clergy" role="tabpanel" aria-labelledby="tab-clergy">
+      <h2 class="section-title">Жречество</h2>
+      <div class="clergy-list" id="grid-clergy"></div>
+    </section>
+
+    <!-- КАРТА -->
+    <section class="tab-section" id="section-map" role="tabpanel" aria-labelledby="tab-map">
+      <h2 class="section-title">Карта Поднебесья</h2>
+      <p class="map-hint">Нажми на точку на карте, чтобы узнать подробнее о локации. Карта кликабельна.</p>
+      <div class="map-frame-wrap">
+        <iframe
+          id="map-iframe"
+          src="https://socman2023.github.io/podnebesie-map/"
+          title="Интерактивная карта Поднебесья"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+        <a class="map-open-link" href="https://socman2023.github.io/podnebesie-map/" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Открыть карту в полном размере
+        </a>
+      </div>
+    </section>
+
+    <!-- СЛОВАРЬ -->
+    <section class="tab-section" id="section-glossary" role="tabpanel" aria-labelledby="tab-glossary">
+      <h2 class="section-title">Словарь мира</h2>
+      <div class="glossary-list" id="grid-glossary"></div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════ MODAL ═══════════════ -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-sheet" id="modalSheet">
+      <button class="modal-close" id="modalClose" aria-label="Закрыть">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
