@@ -8,7 +8,7 @@ const WIKI_DATA = {
   characters: [
     // ── ГЛАВНЫЕ ГЕРОИ (group: "hero") ──────────────────────
     {
-      id: "oleshka", portrait: "https://lh3.googleusercontent.com/d/1Uq5w6p5lS602WotIATx6VYp37DHCqtMv",
+      id: "oleshka", portrait: "portraits/OLESHKA.jpg",
       name: "Олешка",
       fullName: "Олешка, сын Добромира",
       role: "Главный герой · Росс · 14 лет",
@@ -16,17 +16,17 @@ const WIKI_DATA = {
       nation: "ross",
       tags: ["россы", "академия", "маг времени", "княжич", "Златоград"],
       relations: [
-        { id: "sanko", portrait: "https://lh3.googleusercontent.com/d/1co4788dt1mNWMMunp-EoItfpYaEnrpet", label: "лучший друг, двоюродный брат" },
-        { id: "yarko", portrait: "https://lh3.googleusercontent.com/d/19xPn5n6rSDYilUA3Q-NyRvzU5jF53xyB", label: "друг" },
-        { id: "ratsha", portrait: "https://lh3.googleusercontent.com/d/1WdLc6z2z74D5UK9jLeQ5YsUYYqnaWw23", label: "друг" },
-        { id: "ruman", portrait: "https://lh3.googleusercontent.com/d/1-u0a3AhwJ2lHSl3sIb2fEMw7iafcQB3I", label: "друг" },
-        { id: "dobromyr", label: "отец" },
-        { id: "ladoslava", portrait: "https://lh3.googleusercontent.com/d/1O5M2tZ70l62qUYZU1xz5pL0Qc-asAyFo", label: "мать" },
-        { id: "sineoka", label: "сестра" },
-        { id: "svetozar", portrait: "https://lh3.googleusercontent.com/d/1gX5RZ387VDujUbVpzAUG_-y-HDCl8SgA", label: "наставник и настоятель" },
-        { id: "arboris", portrait: "https://lh3.googleusercontent.com/d/15D1uCvvSs8yux412U3DZ2CEM9ndTJ11q", label: "классный учитель" },
-        { id: "vlastoyar", portrait: "https://lh3.googleusercontent.com/d/1d4UnCJS3LWdmHEhCxEUUB4phYzN_9GFz", label: "наставник в бою" },
-        { id: "turka", portrait: "https://lh3.googleusercontent.com/d/1bUgBitD3BuxQHipFf3ZsjXalG1A9QL7h", label: "соперник" }
+        { id: "sanko", portrait: "portraits/SANKO.jpg", label: "лучший друг, двоюродный брат" },
+        { id: "yarko", portrait: "portraits/YARKO.jpg", label: "друг" },
+        { id: "ratsha", portrait: "portraits/RATSHA.jpg", label: "друг" },
+        { id: "ruman", portrait: "portraits/RUMAN.jpg", label: "друг" },
+        { id: "dobromyr", portrait: "portraits/DOBROMIR.jpg", label: "отец" },
+        { id: "ladoslava", portrait: "portraits/LADOSLAVA.jpg", label: "мать" },
+        { id: "sineoka", portrait: "portraits/SINEOKA.jpg", label: "сестра" },
+        { id: "svetozar", portrait: "portraits/SVETOZAR.jpg", label: "наставник и настоятель" },
+        { id: "arboris", portrait: "portraits/ARBORIS.jpg", label: "классный учитель" },
+        { id: "vlastoyar", portrait: "portraits/VLASTOYAR.jpg", label: "наставник в бою" },
+        { id: "turka", portrait: "portraits/TURKA.jpg", label: "соперник" }
       ],
       description: "Княжич земли Росской, сын великого князя Добромира и княгини Ладославы. Родился в Златограде. Светлые растрёпанные волосы, голубые глаза. Добрый, любознательный, чуть инфантильный, но способен на отчаянные поступки.",
       details: "Обладает скрытым даром замедлять время вокруг себя в стрессовых ситуациях — именно это заметил мудрец Светозар и пригласил его в Академию. Учится 4-й год в классе Арбориса. Дядька Твердята учил дома. Воевода Властояр готовил к боевым. Любит рыбалку, кулинарию (печёт пироги и лепёшки), шахматы-таблеи, пение, сочиняет стихи. Конь — чёрный арабийский жеребец Ветерок. Волчонок Лютик — его питомец. Ведёт дневник через «Летописец» — планшет из другого мира. Сестра Синеока (9 лет, озорная), мать Ладослава (поёт, нежная).",
@@ -45,7 +45,7 @@ const WIKI_DATA = {
         { id: "yarko", label: "добрый друг" },
         { id: "ratsha", label: "напряжённые отношения" },
         { id: "vlastoyar", label: "отец (узнал позже)" },
-        { id: "elina", portrait: "https://lh3.googleusercontent.com/d/1mjxggOFXQZld_9sPsxrPIAIZdNzLoPeZ", label: "как младшая сестрёнка" },
+        { id: "elina", portrait: "portraits/ELINA.jpg", label: "как младшая сестрёнка" },
         { id: "ruman", label: "доверяет дару" }
       ],
       description: "Сирота из Славонии, из племени древлян. Жил в лесах с дедом. Тёмные волосы, тёмно-карие глаза, жилистый. Зелёная туника, нож за поясом, руки всегда в земле. Лучший в Академии по зельеварению и травоведению.",
@@ -65,8 +65,8 @@ const WIKI_DATA = {
         { id: "oleshka", label: "друг" },
         { id: "sanko", label: "добрый друг" },
         { id: "ratsha", label: "живут в одной келье" },
-        { id: "mstislav", portrait: "https://lh3.googleusercontent.com/d/1qdz3J1EVd6HLbl2lJ6snw3srHfmQfdCd", label: "дядя / объявил изменником" },
-        { id: "bogumyr", portrait: "https://lh3.googleusercontent.com/d/1hRvyS3YDukS0ddjerE91tiwOY0FLRZ9A", label: "союзник" }
+        { id: "mstislav", portrait: "portraits/MSTISLAV.jpg", label: "дядя / объявил изменником" },
+        { id: "bogumyr", portrait: "portraits/BOGUMIR.jpg", label: "союзник" }
       ],
       description: "Боруск из долины реки Чуня у Полуночных гор (26 октября). Смелый, целеустремлённый. Носит деревянный амулет матери с рунической вязью. Тайная миссия от дяди Мстислава — заманить Олешку в Ужаву за перстнем. Предал дядю ради дружбы.",
       details: "Прекрасно ориентируется в лесу, умеет читать следы. Конь — чёрный Ворон. Дядя объявил его изменником, он бежит с отрядом. Мать Велена — знахарка. Сестра Милена (9 лет, поёт с животными). Помогает им Вольх Богумир.",
@@ -84,7 +84,7 @@ const WIKI_DATA = {
         { id: "oleshka", label: "друг" },
         { id: "sanko", label: "напряжённые отношения" },
         { id: "yarko", label: "живут в одной келье" },
-        { id: "horobor", portrait: "https://lh3.googleusercontent.com/d/1B7d-yXx9kuK946Z7a5_h7bP956bO3kjQ", label: "бывший хозяин" }
+        { id: "horobor", portrait: "portraits/HOROBOR.jpg", label: "бывший хозяин" }
       ],
       description: "Сирота-росс, бывший слуга тёмного вольха Хоробора. Растрёпанные чёрные волосы, чёрные глаза. Угрюм, замкнут, но беззаветно предан друзьям. Умеет превращаться в вороненка — для этого нужно особое перо.",
       details: "Способности: оборотничество в вороненка, магия стихий (снежный смерч, ливень, огонь), создание иллюзий, чутьё на тёмную магию. Питомец — огромный белый пёс Буран (южнорусская овчарка). Живёт в келье с Ярко. Внутренняя борьба с влиянием Хоробора.",
@@ -119,7 +119,7 @@ const WIKI_DATA = {
       relations: [
         { id: "ruman", label: "брат" },
         { id: "sanko", label: "как старший брат" },
-        { id: "esenya", portrait: "https://lh3.googleusercontent.com/d/12mV5WqEDiDZDvqhEBCkmSYiq6F3MWHQg", label: "домовёнок дарит ей подарки" }
+        { id: "esenya", portrait: "portraits/ESENYA.jpg", label: "домовёнок дарит ей подарки" }
       ],
       description: "Младшая сестра Румана. Жизнерадостная и заботливая. Прекрасно ладит с животными — может уговорить даже дикую тварь. Помогает на кухне, в теплице, в питомнике. Увлекается каллиграфией и танцами.",
       details: "Обожает питомник, не расстаётся с кошкой Мавром. Домовёнок Есеня её обожает и дарит магические вещи (блюдо-самобранку). Вспыльчивая — расстроилась и накричала на Румана, когда тот ушёл без неё.",
@@ -177,7 +177,7 @@ const WIKI_DATA = {
       plotlines: ["pl-brotherhood"]
     },
     {
-      id: "flamen", portrait: "https://lh3.googleusercontent.com/d/1YzapWqrPRL1dzqkrESJL7pHAMBklzcJ0",
+      id: "flamen", portrait: "portraits/FLAMEN.jpg",
       name: "Магистр Фламен",
       fullName: "Магистр Бернард Фламен",
       role: "Учитель · Магия стихий",
@@ -190,7 +190,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "silvaria",
+      id: "silvaria", portrait: "portraits/SILVARIYA.jpg",
       name: "Сильвария Лунная",
       fullName: "Сильвария Лунная",
       role: "Учительница · Альва · Исцеление",
@@ -203,7 +203,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "agafangel", portrait: "https://lh3.googleusercontent.com/d/1QPTVUj4lx05Q4Rip7VZFoPkzp-fVd6Sx",
+      id: "agafangel", portrait: "portraits/AGAFANGEL.jpg",
       name: "Агафангел",
       fullName: "Агафангел",
       role: "Учитель · Магическая астрономия",
@@ -216,7 +216,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "griyvard", portrait: "https://lh3.googleusercontent.com/d/1Z7TzXSgfgX6VWv8L3cIbhF96ntlk6syi",
+      id: "griyvard", portrait: "portraits/LIUTSIY.jpg",
       name: "Инквизитор Грейвард",
       fullName: "Инквизитор Люций Грейвард",
       role: "Учитель · Защита от тёмных сил",
@@ -230,7 +230,7 @@ const WIKI_DATA = {
     },
     {
       id: "filemon",
-      portrait: "https://lh3.googleusercontent.com/d/1UpGC6xVJO19laoKPXGacq2cjxGZe0WAN",
+      portrait: "portraits/FILEMON.jpg",
       name: "Филемон",
       fullName: "Филемон",
       role: "Учитель · Трансмутация и алхимия",
@@ -243,7 +243,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "majoraks", portrait: "https://lh3.googleusercontent.com/d/1johcTIt94FzKVUBDf2k97lyznfl4Icxy",
+      id: "majoraks", portrait: "portraits/MAYLO.jpg",
       name: "Майло Морракс",
       fullName: "Майло Морракс",
       role: "Учитель · Иллюзии · Магическая кулинария",
@@ -256,7 +256,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "teodoric", portrait: "https://lh3.googleusercontent.com/d/1dKndocaoYg0stWSu9bVmNShBTUslJKx9",
+      id: "teodoric", portrait: "portraits/TEODORIK.jpg",
       name: "Теодорик де Монфор",
       fullName: "Теодорик де Монфор",
       role: "Учитель · Музыка и гармония · Риторика",
@@ -269,7 +269,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "erazmiy", portrait: "https://lh3.googleusercontent.com/d/1jh_jpIks6zV-VzWoAfsMuqTthwBAvFCq",
+      id: "erazmiy", portrait: "portraits/ERAZMIY.jpg",
       name: "Эразмий Вайзенберг",
       fullName: "Эразмий Вайзенберг",
       role: "Учитель · Магическая биология",
@@ -282,7 +282,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "lavren",
+      id: "lavren", portrait: "portraits/LAVREN.jpg",
       name: "Лаврен",
       fullName: "Лаврен",
       role: "Учитель · Магия восприятия",
@@ -295,7 +295,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "leonty", portrait: "https://lh3.googleusercontent.com/d/1H20R7gT22e9kSYvvwfCNorRvF6beCk02",
+      id: "leonty", portrait: "portraits/LEONTIY.jpg",
       name: "Леонтий",
       fullName: "Леонтий",
       role: "Библиотекарь · Рамей · 50 лет",
@@ -310,7 +310,7 @@ const WIKI_DATA = {
 
     // ── УЧЕНИКИ КЛАССА АРБОРИСА (group: "student") ──────────
     {
-      id: "feodosiy", portrait: "https://lh3.googleusercontent.com/d/1OEM0pOeYVDf8vr8XbPpTp2l4cYsC1eLY",
+      id: "feodosiy", portrait: "portraits/FEODOSIY.jpg",
       name: "Феодосий",
       fullName: "Феодосий",
       role: "Ученик класса Арбориса · Рамей",
@@ -323,7 +323,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "anastasiy", portrait: "https://lh3.googleusercontent.com/d/11oiV6rVTcNcccWjlqUDy2WRjQhC7wgnD",
+      id: "anastasiy", portrait: "portraits/ANASTASIY.jpg",
       name: "Анастасий",
       fullName: "Анастасий",
       role: "Ученик класса Арбориса · Рамей",
@@ -336,7 +336,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "iliodor", portrait: "https://lh3.googleusercontent.com/d/1bZ55kcABkqmgHfiT9YcqxWT6HR5Rp2HU",
+      id: "iliodor", portrait: "portraits/ILIODOR.jpg",
       name: "Илиодор",
       fullName: "Илиодор",
       role: "Ученик класса Арбориса · Рамей",
@@ -349,7 +349,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "nikefir", portrait: "https://lh3.googleusercontent.com/d/14O3uHKnLeT6TKyA7k3RMIrXY81-hRZci",
+      id: "nikefir", portrait: "portraits/NIKEFOR.jpg",
       name: "Никефор",
       fullName: "Никефор",
       role: "Ученик класса Арбориса · Рамей",
@@ -362,7 +362,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "demetriy", portrait: "https://lh3.googleusercontent.com/d/1eJ877grmG0hHV8AZllz74hMP6M1zodM3",
+      id: "demetriy", portrait: "portraits/DEMETRIY.jpg",
       name: "Деметрий",
       fullName: "Деметрий",
       role: "Ученик класса Арбориса · Рамей",
@@ -375,7 +375,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "zenon", portrait: "https://lh3.googleusercontent.com/d/1oW05-6zp8PQ109bGfP0epgINgaloPRxB",
+      id: "zenon", portrait: "portraits/ZENON.jpg",
       name: "Зенон",
       fullName: "Зенон",
       role: "Ученик класса Арбориса · Рамей",
@@ -388,7 +388,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "evstatiy", portrait: "https://lh3.googleusercontent.com/d/11fg5Vpu51411W30KhgjiR9SVNgTVSAhJ",
+      id: "evstatiy", portrait: "portraits/EVSTATIY.jpg",
       name: "Евстатий",
       fullName: "Евстатий",
       role: "Ученик класса Арбориса · Рамей",
@@ -401,7 +401,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "nikandr", portrait: "https://lh3.googleusercontent.com/d/1yBc8eS7zkf-_jJlpwa5telkQzh75pqrg",
+      id: "nikandr", portrait: "portraits/NIKANDROS.jpg",
       name: "Никандрос",
       fullName: "Никандрос",
       role: "Ученик класса Арбориса · Рамей",
@@ -414,7 +414,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "orti", portrait: "https://lh3.googleusercontent.com/d/1JULeEEByGuNIgycnTKE-i1IzV24aRWZ9",
+      id: "orti", portrait: "portraits/ORTI.jpg",
       name: "Орти",
       fullName: "Орти",
       role: "Ученик класса Арбориса · Ард",
@@ -427,7 +427,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "anso", portrait: "https://lh3.googleusercontent.com/d/127zaktO4jsKU2NcK8oUoeUzc9Shxk9Vx",
+      id: "anso", portrait: "portraits/ANSO.jpg",
       name: "Ансо",
       fullName: "Ансо",
       role: "Ученик класса Арбориса · Ард",
@@ -440,7 +440,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "eneko", portrait: "https://lh3.googleusercontent.com/d/1Xxj-6VLMyg7N1dvcW-IcVZ58bKyTWgWD",
+      id: "eneko", portrait: "portraits/ENEKO.jpg",
       name: "Энеко",
       fullName: "Энеко",
       role: "Ученик класса Арбориса · Ард",
@@ -453,7 +453,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "chagataiy", portrait: "https://lh3.googleusercontent.com/d/179d0IdxFIm_ZOOPz7tquxLrm8uGqYmvi",
+      id: "chagataiy", portrait: "portraits/CHAGATAY.jpg",
       name: "Чагатай",
       fullName: "Чагатай",
       role: "Ученик класса Арбориса · Тартарин",
@@ -466,7 +466,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "barnard", portrait: "https://lh3.googleusercontent.com/d/1oIV9f_XQL8DcVUVKKyeV9Lt4U9rRiGBf",
+      id: "barnard", portrait: "portraits/BARNARD.jpg",
       name: "Барнард",
       fullName: "Барнард",
       role: "Ученик класса Арбориса · Нордунг",
@@ -479,7 +479,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "urko", portrait: "https://lh3.googleusercontent.com/d/1z_99eE2ccVBfHNtmOuR8HsF2Tz2cI8Mi",
+      id: "urko", portrait: "portraits/URKO.jpg",
       name: "Урко",
       fullName: "Урко",
       role: "Ученик класса Арбориса · Кахет",
@@ -509,7 +509,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "tarib", portrait: "https://lh3.googleusercontent.com/d/1-FCKycgtlyAIcLRw0MzFie0EILPz8uoc",
+      id: "tarib", portrait: "portraits/TARIB.jpg",
       name: "Тариб",
       fullName: "Тариб",
       role: "Ученик класса Симеона · Кушт",
@@ -522,7 +522,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "bakhram", portrait: "https://lh3.googleusercontent.com/d/1-ZLzl7Y_9l0gh-jBLSWt7gXt-Cfhg-YO",
+      id: "bakhram", portrait: "portraits/BAHRAM.jpg",
       name: "Бахрам",
       fullName: "Бахрам",
       role: "Ученик класса Симеона · Кушт",
@@ -535,7 +535,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "rostam", portrait: "https://lh3.googleusercontent.com/d/1vCsT41VCxruZWe8qA5jkdCIfYewYuA-2",
+      id: "rostam", portrait: "portraits/ROSTAM.jpg",
       name: "Ростам",
       fullName: "Ростам",
       role: "Ученик класса Симеона · Кушт",
@@ -548,7 +548,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "farid", portrait: "https://lh3.googleusercontent.com/d/15G6Myp5Z5pz412P2mQrftiK17sSYmcEt",
+      id: "farid", portrait: "portraits/FARID.jpg",
       name: "Фарид",
       fullName: "Фарид",
       role: "Ученик класса Симеона · Кушт",
@@ -561,7 +561,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "keyvan", portrait: "https://lh3.googleusercontent.com/d/1sbhGw4fWGt8YwJ_Fb7rmhTp6TBYFizP0",
+      id: "keyvan", portrait: "portraits/KEIVAN.jpg",
       name: "Кейван",
       fullName: "Кейван",
       role: "Ученик класса Симеона · Кушт",
@@ -574,7 +574,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "mehdad", portrait: "https://lh3.googleusercontent.com/d/13epLf4lIiW6aEqGyGaWZ1KfMuYm_MqLP",
+      id: "mehdad", portrait: "portraits/MEHDAD.jpg",
       name: "Мехдад",
       fullName: "Мехдад",
       role: "Ученик класса Симеона · Кушт",
@@ -587,7 +587,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "dzhara", portrait: "https://lh3.googleusercontent.com/d/1PKmzdmic3RpfrRobe-CF5aQqu95px5_n",
+      id: "dzhara", portrait: "portraits/DZHARA.jpg",
       name: "Джара",
       fullName: "Джара",
       role: "Ученик класса Симеона · Синд",
@@ -600,7 +600,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "ravi", portrait: "https://lh3.googleusercontent.com/d/1BsgHgDnFKiCF6hqrs3YngvV8aDQn7d_d",
+      id: "ravi", portrait: "portraits/RAVI.jpg",
       name: "Рави",
       fullName: "Рави",
       role: "Ученик класса Симеона · Синд",
@@ -613,7 +613,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "adzhit", portrait: "https://lh3.googleusercontent.com/d/1vIzjeuDU6jErp1v2jTZ7mWwuZUkZhWQA",
+      id: "adzhit", portrait: "portraits/ADZHIT.jpg",
       name: "Аджит",
       fullName: "Аджит",
       role: "Ученик класса Симеона · Синд",
@@ -626,7 +626,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "harshad", portrait: "https://lh3.googleusercontent.com/d/1bMTzq7EabhP604FDxQ661Ea7rxtc_tZa",
+      id: "harshad", portrait: "portraits/HARSHAD.jpg",
       name: "Харшад",
       fullName: "Харшад",
       role: "Ученик класса Симеона · Синд",
@@ -639,7 +639,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "amir", portrait: "https://lh3.googleusercontent.com/d/1nn5J9epwwDhNjYiNGx1qWVjMznKthctp",
+      id: "amir", portrait: "portraits/AMIR.jpg",
       name: "Амир",
       fullName: "Амир",
       role: "Ученик класса Симеона · Арависк",
@@ -652,7 +652,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "faris", portrait: "https://lh3.googleusercontent.com/d/1S5BKxvzAmMwjZC2fIdC-DgsO57PB5vix",
+      id: "faris", portrait: "portraits/FARIS.jpg",
       name: "Фарис",
       fullName: "Фарис",
       role: "Ученик класса Симеона · Арависк",
@@ -665,7 +665,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "nadir", portrait: "https://lh3.googleusercontent.com/d/1Sbe85M5gXxWipRlcBZmwrwVKKzN-tkiO",
+      id: "nadir", portrait: "portraits/NADIR.jpg",
       name: "Надир",
       fullName: "Надир",
       role: "Ученик класса Симеона · Арависк",
@@ -678,7 +678,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "gunter", portrait: "https://lh3.googleusercontent.com/d/1ZNkBn4cKhnmEuQ0YNTt8ACJOHESUvxEJ",
+      id: "gunter", portrait: "portraits/GUNTER.jpg",
       name: "Гунтер",
       fullName: "Гунтер",
       role: "Ученик класса Симеона · Риттер",
@@ -691,7 +691,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "albrekht", portrait: "https://lh3.googleusercontent.com/d/1JD5orrRuVJXtE0cGj8lEVtwGPXcvn0qf",
+      id: "albrekht", portrait: "portraits/ALBRECHT.jpg",
       name: "Альбрехт",
       fullName: "Альбрехт",
       role: "Ученик класса Симеона · Риттер",
@@ -704,7 +704,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "niol", portrait: "https://lh3.googleusercontent.com/d/1KgbADFOardrKTi2EQ5tZ1q0DawdpV0-I",
+      id: "niol", portrait: "portraits/NIOL.jpg",
       name: "Ниол",
       fullName: "Ниол",
       role: "Ученик класса Симеона · Риттер",
@@ -719,7 +719,7 @@ const WIKI_DATA = {
 
     // ── УЧЕНИКИ КЛАССА БРИНА (group: "student") ─────────────
     {
-      id: "amodikh", portrait: "https://lh3.googleusercontent.com/d/1fGwApfT2SroTyGR10xOmITX0pwueuDpz",
+      id: "amodikh", portrait: "portraits/AMODIH.jpg",
       name: "Амодих",
       fullName: "Амодих",
       role: "Ученик класса Брина · Балл",
@@ -732,7 +732,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "gasparkh", portrait: "https://lh3.googleusercontent.com/d/1JuKyj7OPfoIzxfSRunt4mqCZoFpNjl71",
+      id: "gasparkh", portrait: "portraits/GASPARH.jpg",
       name: "Гаспарх",
       fullName: "Гаспарх",
       role: "Ученик класса Брина · Балл",
@@ -942,7 +942,7 @@ const WIKI_DATA = {
 
     // ── ПЕРСОНАЛ (group: "staff") ────────────────────────────
     {
-      id: "ragvor", portrait: "https://lh3.googleusercontent.com/d/1dxdNhgL-Iobs7pL7O_NecERXegaPwMpk",
+      id: "ragvor", portrait: "portraits/RAGVOR.jpg",
       name: "Рагвор",
       fullName: "Рагвор",
       role: "Кухарь · Синд · 55 лет",
@@ -955,7 +955,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "stur", portrait: "https://lh3.googleusercontent.com/d/1buf3OcIub1QMbWwjT7MQm8YW0OJdlhkv",
+      id: "stur", portrait: "portraits/STUR.jpg",
       name: "Стур",
       fullName: "Стур",
       role: "Конюх · Дан · 60 лет",
@@ -968,7 +968,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "luka", portrait: "https://lh3.googleusercontent.com/d/1rekX3GzkTrw72cNs8Kq5M9TGmPGw0zWX",
+      id: "luka", portrait: "portraits/LUKA.jpg",
       name: "Лука",
       fullName: "Лука",
       role: "Садовник · Ард · 60 лет",
@@ -981,7 +981,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "bakhman", portrait: "https://lh3.googleusercontent.com/d/1fufgymYshZ3gZ3drpQuslYDEiieLjBuf",
+      id: "bakhman", portrait: "portraits/BAHMAN.jpg",
       name: "Бахман",
       fullName: "Бахман",
       role: "Сапожник и брадобрей · Ард · 35 лет",
@@ -994,7 +994,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "khrog", portrait: "https://lh3.googleusercontent.com/d/1wynPM_F4KA-Wk2GIlaUNz5EhMcl_yV9N",
+      id: "khrog", portrait: "portraits/HROG.jpg",
       name: "Хрог",
       fullName: "Хрог",
       role: "Скотник · Дан · 50 лет",
@@ -1007,7 +1007,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "volotka", portrait: "https://lh3.googleusercontent.com/d/1JHGpg2jay5Msmxsi6d85i6qJ0ktvj5XW",
+      id: "volotka", portrait: "portraits/VOLOTKA.jpg",
       name: "Волотка",
       fullName: "Волотка",
       role: "Ключник · Из Торжка · 20 лет",
@@ -1020,7 +1020,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "ugo", portrait: "https://lh3.googleusercontent.com/d/1VIEeY0tRDfPRyzsQXJiLxRmfnMviusXT",
+      id: "ugo", portrait: "portraits/HUGO.jpg",
       name: "Уго",
       fullName: "Уго",
       role: "Пастушок · Дан · 13 лет",
@@ -1033,7 +1033,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "voyko", portrait: "https://lh3.googleusercontent.com/d/1x3ZWs1oMZkHYIv5M5wd5e6xaQtGZUwST",
+      id: "voyko", portrait: "portraits/VOIKO.jpg",
       name: "Войко",
       fullName: "Войко",
       role: "Служка настоятеля · Из Торжка · 16 лет",
@@ -1046,7 +1046,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "dariy", portrait: "https://lh3.googleusercontent.com/d/1pdAebJMVeZMmmY-DaoDmlXnWbWzzIpwx",
+      id: "dariy", portrait: "portraits/DARIY.jpg",
       name: "Дарий",
       fullName: "Дарий",
       role: "Кузнец и золотарь · Хмур · 250 лет",
@@ -1059,7 +1059,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "gunnar", portrait: "https://lh3.googleusercontent.com/d/1apdY-weByAUs47jW9h-CphLgVRWygmX4",
+      id: "gunnar", portrait: "portraits/GUNNAR.jpg",
       name: "Гуннар",
       fullName: "Гуннар",
       role: "Печник · Нордунг · 45 лет",
@@ -1072,7 +1072,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "aydan", portrait: "https://lh3.googleusercontent.com/d/1XHHPETmK684o3QuGil5FQKZVfeylj88f",
+      id: "aydan", portrait: "portraits/AIDAN.jpg",
       name: "Айдан",
       fullName: "Айдан",
       role: "Ловчий · Дан · 30 лет",
@@ -1085,7 +1085,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "kaspar", portrait: "https://lh3.googleusercontent.com/d/1CGj7cNqyp_8p0RMMskVA5tS4sF1UzNuu",
+      id: "kaspar", portrait: "portraits/KASPAR.jpg",
       name: "Каспар",
       fullName: "Каспар",
       role: "Прачник · Вон · 35 лет",
@@ -1098,7 +1098,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "khasan", portrait: "https://lh3.googleusercontent.com/d/1j9KW2JtskLD-yB_xhY6iKq_o65GO80-h",
+      id: "khasan", portrait: "portraits/HASAN.jpg",
       name: "Хасан",
       fullName: "Хасан",
       role: "Банщик · Кушт · 35 лет",
@@ -1124,7 +1124,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "roven", portrait: "https://lh3.googleusercontent.com/d/1-oKscc6pg0wma6Po2-S74u4wXI10Qlhv",
+      id: "roven", portrait: "portraits/ROVEN.jpg",
       name: "Ровень",
       fullName: "Ровень",
       role: "Пасечник и бортник · Боруск · 65 лет",
@@ -1137,7 +1137,7 @@ const WIKI_DATA = {
       plotlines: []
     },
     {
-      id: "khartvyg", portrait: "https://lh3.googleusercontent.com/d/1FvWPqJ7vhjMlwLqmrlaF9Se0t_RegHmN",
+      id: "khartvyg", portrait: "portraits/HARTVIG.jpg",
       name: "Хартвиг",
       fullName: "Хартвиг",
       role: "Мельник · Татавинец · 40 лет",
@@ -1205,7 +1205,7 @@ const WIKI_DATA = {
         { id: "ladoslava", label: "жена" },
         { id: "sineoka", label: "дочь" },
         { id: "vlastoyar", label: "бывший воевода" },
-        { id: "bozhydar", label: "побратим" }
+        { id: "bozhydar", portrait: "portraits/BOZHIDAR.jpg", label: "побратим" }
       ],
       description: "Благородный мужчина ~35 лет с седеющей бородой в богатой одежде. Строгий, справедливый. Великий Князь Роси. Исчез во время охоты — подстрелен тёмным вольхом Хоробором по заданию «Мечника».",
       details: "Правит из Златограда. Перстень его власти пропал после засады. Ладослава ищет помощи у вольха Всемысла.",
@@ -1307,7 +1307,7 @@ const WIKI_DATA = {
       plotlines: ["pl-boruski"]
     },
     {
-      id: "kandom", portrait: "https://lh3.googleusercontent.com/d/1JJUPd6azDtyS9otgFGX5rj4nggV3o3Rn",
+      id: "kandom", portrait: "portraits/KANDZO.jpg",
       name: "Кандзо",
       fullName: "Кандзо",
       role: "Воин-борьсек · Дружинник Властояра",
