@@ -54,6 +54,7 @@ const WIKI_DATA = {
     },
     {
       id: "yarko",
+      portrait: "portraits/YARKO.jpg",
       name: "Ярко",
       fullName: "Ярко, племянник Мстислава",
       role: "Друг · Боруск · 13 лет",
@@ -91,6 +92,7 @@ const WIKI_DATA = {
     },
     {
       id: "ruman",
+      portrait: "portraits/RUMAN.jpg",
       name: "Руман",
       fullName: "Руман, брат Элины",
       role: "Друг · Кушт · 13 лет",
@@ -107,6 +109,7 @@ const WIKI_DATA = {
     },
     {
       id: "elina",
+      portrait: "portraits/ELINA.jpg",
       name: "Элина",
       fullName: "Элина, сестра Румана",
       role: "Подруга · Кушт · 8 лет",
@@ -227,6 +230,7 @@ const WIKI_DATA = {
     },
     {
       id: "filemon",
+      portrait: "portraits/FILEMON.jpg",
       name: "Филемон",
       fullName: "Филемон",
       role: "Учитель · Трансмутация и алхимия",
@@ -1256,6 +1260,7 @@ const WIKI_DATA = {
     },
     {
       id: "horobor",
+      portrait: "portraits/HOROBOR.jpg",
       name: "Хоробор",
       fullName: "Хоробор, тёмный вольх",
       role: "Тёмный вольх · Антагонист",

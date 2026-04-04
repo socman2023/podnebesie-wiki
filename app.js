@@ -366,6 +366,7 @@
       card.setAttribute('role', 'button');
       card.setAttribute('tabindex', '0');
       card.innerHTML = `
+        ${char.portrait ? `<img class="card-portrait" src="${char.portrait}" alt="${esc(char.name)}" loading="lazy">` : ''}
         <div class="card-name">${esc(char.name)}</div>
         <div class="card-role">${esc(char.role)}</div>
         <div class="card-desc">${esc(char.description)}</div>
@@ -969,6 +970,7 @@
       <div class="modal-type-badge">${esc(groupLabel[char.group] || 'Персонаж')}</div>
       <h2 class="modal-title" id="modalTitle">${esc(char.name)}</h2>
       <div class="modal-subtitle">${esc(char.fullName)}</div>
+      ${char.portrait ? `<img class="modal-portrait" src="${char.portrait}" alt="${esc(char.name)}" loading="lazy">` : ''}
       <div class="modal-section-label">О персонаже</div>
       <p class="modal-text">${esc(char.description)}</p>
       <div class="modal-divider"></div>
