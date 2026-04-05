@@ -685,11 +685,15 @@
       academy.locations.forEach(loc => {
         const card = el('div', 'card');
         card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.style.cursor = 'pointer';
         card.innerHTML = `
           <div class="location-number">${esc(String(loc.num))}</div>
           <div class="card-name">${esc(loc.name)}</div>
           <div class="card-desc">${esc(loc.desc)}</div>
         `;
+        card.addEventListener('click', () => openModal('location', loc));
+        card.addEventListener('keydown', e => { if (e.key === 'Enter') openModal('location', loc); });
         locGrid.appendChild(card);
       });
     }
