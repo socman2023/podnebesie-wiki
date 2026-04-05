@@ -1818,3 +1818,217 @@ p, li { text-wrap: pretty; }
   margin-left: auto;
   margin-right: auto;
 }
+
+/* ── EDITOR ─────────────────────────────────────────────── */
+.editor-toggle-btn {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  color: var(--color-text-faint);
+  transition: color var(--transition), background var(--transition);
+}
+.editor-toggle-btn:hover {
+  color: var(--color-gold);
+  background: var(--color-surface-accent);
+}
+
+/* Login panel */
+#editor-login-panel {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5);
+}
+.editor-login-box {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  width: 100%;
+  max-width: 380px;
+  box-shadow: var(--shadow-lg);
+}
+.editor-login-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-bottom: var(--space-2);
+}
+.editor-login-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-5);
+}
+.editor-pw-input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+  outline: none;
+  transition: border-color var(--transition);
+}
+.editor-pw-input:focus { border-color: var(--color-gold); }
+.editor-login-actions { display: flex; gap: var(--space-3); }
+.editor-login-error {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-crimson);
+  min-height: 1.2em;
+}
+
+/* Buttons */
+.editor-btn {
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity var(--transition), background var(--transition);
+}
+.editor-btn-primary {
+  background: var(--color-gold);
+  color: var(--color-text-inverse);
+  border: none;
+}
+.editor-btn-primary:hover { opacity: 0.88; }
+.editor-btn-ghost {
+  background: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+.editor-btn-ghost:hover {
+  color: var(--color-text);
+  background: var(--color-surface-accent);
+}
+
+/* Editor status bar */
+#editor-bar {
+  position: fixed;
+  bottom: var(--space-5);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-full);
+  padding: var(--space-2) var(--space-5);
+  box-shadow: var(--shadow-glow);
+  z-index: 300;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+.editor-bar-icon { font-size: 1rem; }
+.editor-bar-text { color: var(--color-gold); font-weight: 600; }
+.editor-bar-exit { padding: var(--space-1) var(--space-3); font-size: var(--text-xs); }
+
+/* Pencil button on cards */
+.edit-pencil-btn {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  width: 28px;
+  height: 28px;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity var(--transition), background var(--transition);
+  z-index: 10;
+}
+.edit-pencil-btn:hover {
+  opacity: 1;
+  background: var(--color-gold);
+}
+
+/* Editor modal */
+.editor-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5);
+}
+.editor-modal {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  width: 100%;
+  max-width: 480px;
+  max-height: 85dvh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+}
+.editor-modal-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-bottom: var(--space-5);
+}
+.editor-field { margin-bottom: var(--space-4); }
+.editor-field-label {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  margin-bottom: var(--space-2);
+}
+.editor-field-input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  color: var(--color-text);
+  resize: vertical;
+  outline: none;
+  transition: border-color var(--transition);
+  line-height: 1.55;
+}
+.editor-field-input:focus { border-color: var(--color-gold); }
+.editor-modal-actions {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+.editor-save-icon { margin-right: 2px; }
+.editor-save-status {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  min-height: 1.4em;
+  border-radius: var(--radius-sm);
+  padding: 0 2px;
+}
+.editor-save-status.saving { color: var(--color-text-muted); }
+.editor-save-status.success { color: var(--color-forest); font-weight: 600; }
+.editor-save-status.error   { color: var(--color-crimson); }
