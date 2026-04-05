@@ -270,6 +270,7 @@
         <div class="card-name">№ ${esc(String(data.num))} ${esc(data.name)}</div>
         <div class="card-desc">${esc(data.desc)}</div>
       `;
+      div.addEventListener('click', () => openModal('location', data));
     } else if (type === 'glossary') {
       div.innerHTML = `
         <div class="card-name">${esc(data.word)}</div>
@@ -942,7 +943,18 @@
     if (type === 'holiday')   return buildHolidayModal(data);
     if (type === 'plotline')  return buildPlotModal(data);
     if (type === 'clergy')    return buildClergyModal(data);
+    if (type === 'location')   return buildLocationModal(data);
     return '';
+  }
+
+  function buildLocationModal(loc) {
+    return `
+      <div class="modal-type-badge">Локация Академии · №${esc(String(loc.num))}</div>
+      <h2 class="modal-title" id="modalTitle">${esc(loc.name)}</h2>
+      <div class="modal-divider"></div>
+      <div class="modal-section-label">Описание</div>
+      <p class="modal-text">${esc(loc.desc)}</p>
+    `;
   }
 
   function buildCharModal(char) {
