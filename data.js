@@ -756,6 +756,7 @@ const WIKI_DATA = {
     },
     {
       id: "faolan",
+      portrait: "portraits/FAOLAN.jpg",
       name: "Фаолан",
       fullName: "Фаолан",
       role: "Ученик класса Брина · Балл",
@@ -769,6 +770,7 @@ const WIKI_DATA = {
     },
     {
       id: "karnak",
+      portrait: "portraits/KARNAK-14.jpg",
       name: "Карнак",
       fullName: "Карнак",
       role: "Ученик класса Брина · Балл",
@@ -782,6 +784,7 @@ const WIKI_DATA = {
     },
     {
       id: "brenn",
+      portrait: "portraits/BRENN-15.jpg",
       name: "Бренн",
       fullName: "Бренн",
       role: "Ученик класса Брина · Балл",
@@ -795,6 +798,7 @@ const WIKI_DATA = {
     },
     {
       id: "roger",
+      portrait: "portraits/ROGER-3.jpg",
       name: "Рогер",
       fullName: "Рогер",
       role: "Ученик класса Брина · Вон",
@@ -808,6 +812,7 @@ const WIKI_DATA = {
     },
     {
       id: "rian",
+      portrait: "portraits/RIAN-5.jpg",
       name: "Риан",
       fullName: "Риан",
       role: "Ученик класса Брина · Вон",
@@ -821,6 +826,7 @@ const WIKI_DATA = {
     },
     {
       id: "bernat",
+      portrait: "portraits/BERNAT-4.jpg",
       name: "Бернат",
       fullName: "Бернат",
       role: "Ученик класса Брина · Вон",
@@ -834,6 +840,7 @@ const WIKI_DATA = {
     },
     {
       id: "ramon",
+      portrait: "portraits/RAMON-11.jpg",
       name: "Рамон",
       fullName: "Рамон",
       role: "Ученик класса Брина · Вон",
@@ -847,6 +854,7 @@ const WIKI_DATA = {
     },
     {
       id: "mark",
+      portrait: "portraits/MARK-2.jpg",
       name: "Марк",
       fullName: "Марк",
       role: "Ученик класса Брина · Вон",
@@ -860,6 +868,7 @@ const WIKI_DATA = {
     },
     {
       id: "diodor",
+      portrait: "portraits/DIODOR-8.jpg",
       name: "Диодор",
       fullName: "Диодор",
       role: "Ученик класса Брина · Дан",
@@ -873,6 +882,7 @@ const WIKI_DATA = {
     },
     {
       id: "khlotar",
+      portrait: "portraits/HLOTAR-13.jpg",
       name: "Хлотар",
       fullName: "Хлотар",
       role: "Ученик класса Брина · Дан",
@@ -886,6 +896,7 @@ const WIKI_DATA = {
     },
     {
       id: "sigibert",
+      portrait: "portraits/SIGIBERT-10.jpg",
       name: "Сигиберт",
       fullName: "Сигиберт",
       role: "Ученик класса Брина · Дан",
@@ -899,6 +910,7 @@ const WIKI_DATA = {
     },
     {
       id: "gunt",
+      portrait: "portraits/GUNT-12.jpg",
       name: "Гунт",
       fullName: "Гунт",
       role: "Ученик класса Брина · Дан",
@@ -912,6 +924,7 @@ const WIKI_DATA = {
     },
     {
       id: "vald",
+      portrait: "portraits/VALD-9.jpg",
       name: "Вальд",
       fullName: "Вальд",
       role: "Ученик класса Брина · Дан",
@@ -925,6 +938,7 @@ const WIKI_DATA = {
     },
     {
       id: "teod",
+      portrait: "portraits/TEOD-7.jpg",
       name: "Теод",
       fullName: "Теод",
       role: "Ученик класса Брина · Дан",
@@ -938,6 +952,7 @@ const WIKI_DATA = {
     },
     {
       id: "tomas",
+      portrait: "portraits/TOMAS-6.jpg",
       name: "Томас",
       fullName: "Томас",
       role: "Ученик класса Брина · Татавинец",
