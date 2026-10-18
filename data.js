@@ -2391,8 +2391,8 @@ const WIKI_DATA = {
       {
         name: "Класс Симеона",
         teacher: "simeon",
-        count: 19,
-        students: ["turka", "tarib", "bakhram", "rostam", "farid", "keyvan", "mehdad", "ruman", "elina", "dzhara", "ravi", "adzhit", "harshad", "amir", "faris", "nadir", "gunter", "albrekht", "niol"]
+        count: 18,
+        students: ["turka", "tarib", "bakhram", "rostam", "farid", "keyvan", "mehdad", "ruman", "dzhara", "ravi", "adzhit", "harshad", "amir", "faris", "nadir", "gunter", "albrekht", "niol"]
       }
     ],
     locations: [
