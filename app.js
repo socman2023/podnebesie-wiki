@@ -702,7 +702,7 @@
     const coursesEl = $('academy-courses');
     if (coursesEl && academy.courses) {
       const courseGroups = [
-        { key: 'main',    label: 'Основные курсы' },
+        { key: 'main',    label: 'Обязательные дисциплины' },
         { key: 'special', label: 'Спецкурсы' },
         { key: 'elective',label: 'Факультативы' },
       ];
