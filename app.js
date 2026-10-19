@@ -752,8 +752,8 @@
 
   const DAY_KEYS  = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
   const DAY_NAMES = ['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота','Воскресенье'];
-  const MEAL_KEYS  = ['breakfast','snack','lunch','dinner'];
-  const MEAL_NAMES = ['Завтрак','Перекус','Обед','Ужин'];
+  const MEAL_KEYS  = ['breakfast','snack','lunch','afternoon','dinner'];
+  const MEAL_NAMES = ['Завтрак','Перекус','Обед','Полдник','Ужин'];
 
   function renderScheduleTable() {
     const tbl = $('academy-schedule');
