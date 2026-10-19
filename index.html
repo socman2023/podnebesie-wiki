@@ -239,6 +239,22 @@
   </div>
 
   <!-- Scripts -->
+  <!-- Фотоальбом локации (используется только при наличии gallery в данных) -->
+  <div class="gallery-overlay" id="galleryOverlay" role="dialog" aria-modal="true" aria-label="Фотоальбом локации" hidden>
+    <section class="gallery-sheet">
+      <header class="gallery-toolbar">
+        <span id="galleryCount" aria-live="polite">1 / 1</span>
+        <button type="button" id="galleryClose" class="gallery-close" aria-label="Закрыть фотоальбом">✕</button>
+      </header>
+      <div class="gallery-stage">
+        <button type="button" id="galleryPrevious" class="gallery-nav" aria-label="Предыдущее фото">‹</button>
+        <img id="galleryPhoto" alt="" decoding="async">
+        <button type="button" id="galleryNext" class="gallery-nav" aria-label="Следующее фото">›</button>
+      </div>
+      <p id="galleryCaption" class="gallery-caption"></p>
+      <div id="galleryThumbs" class="gallery-thumbnails" aria-label="Миниатюры фотографий"></div>
+    </section>
+  </div>
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>

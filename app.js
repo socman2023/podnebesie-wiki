@@ -884,6 +884,12 @@
     if (e.target === overlay) closeModal();
   });
   document.addEventListener('keydown', e => {
+    if (!galleryOverlay.hasAttribute('hidden')) {
+      if (e.key === 'Escape') { e.preventDefault(); closeGallery(); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); moveGallery(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); moveGallery(-1); }
+      return;
+    }
     if (e.key === 'Escape') closeModal();
   });
 
@@ -914,15 +920,104 @@
       });
     });
 
+    if (type === 'place' && Array.isArray(data.gallery) && data.gallery.length) {
+      modalBody.querySelector('[data-gallery-open]')?.addEventListener('click', () => openGallery(data.gallery));
+    }
+
     overlay.removeAttribute('hidden');
     document.body.style.overflow = 'hidden';
     $('modalClose').focus();
   }
 
   function closeModal() {
+    if (!galleryOverlay.hasAttribute('hidden')) closeGallery();
     overlay.setAttribute('hidden', '');
     document.body.style.overflow = '';
   }
+
+
+  // ── LOCATION PHOTO GALLERIES ────────────────────────────────
+  // Only the selected image is shown at full size; 7 thumbnails per group.
+  const galleryOverlay = $('galleryOverlay');
+  const galleryPhoto = $('galleryPhoto');
+  const galleryCaption = $('galleryCaption');
+  const galleryCount = $('galleryCount');
+  const galleryThumbs = $('galleryThumbs');
+  let galleryItems = [];
+  let galleryIndex = 0;
+  let galleryFocusReturn = null;
+  let galleryTouchX = null;
+
+  function openGallery(items) {
+    if (!Array.isArray(items) || !items.length) return;
+    galleryItems = items;
+    galleryIndex = 0;
+    galleryFocusReturn = document.activeElement;
+    galleryOverlay.removeAttribute('hidden');
+    overlay.setAttribute('aria-hidden', 'true');
+    renderGallery();
+    $('galleryClose').focus();
+  }
+
+  function renderGallery() {
+    if (!galleryItems.length) return;
+    const current = galleryItems[galleryIndex];
+    galleryPhoto.src = current.src;
+    galleryPhoto.alt = current.caption || 'Фотография локации';
+    galleryCaption.textContent = current.caption || '';
+    galleryCount.textContent = (galleryIndex + 1) + ' / ' + galleryItems.length;
+    const start = Math.floor(galleryIndex / 7) * 7;
+    galleryThumbs.replaceChildren();
+    galleryItems.slice(start, start + 7).forEach((item, offset) => {
+      const i = start + offset;
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'gallery-thumb' + (i === galleryIndex ? ' is-active' : '');
+      btn.setAttribute('aria-label', 'Показать фото ' + (i + 1) + ': ' + (item.caption || ''));
+      btn.setAttribute('aria-pressed', String(i === galleryIndex));
+      const img = document.createElement('img');
+      img.src = item.src;
+      img.alt = '';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      btn.appendChild(img);
+      btn.addEventListener('click', () => { galleryIndex = i; renderGallery(); });
+      galleryThumbs.appendChild(btn);
+    });
+  }
+
+  function moveGallery(direction) {
+    if (!galleryItems.length) return;
+    galleryIndex = (galleryIndex + direction + galleryItems.length) % galleryItems.length;
+    renderGallery();
+  }
+
+  function closeGallery() {
+    galleryOverlay.setAttribute('hidden', '');
+    overlay.removeAttribute('aria-hidden');
+    galleryPhoto.removeAttribute('src');
+    galleryThumbs.replaceChildren();
+    galleryItems = [];
+    if (galleryFocusReturn?.isConnected) galleryFocusReturn.focus();
+    else $('modalClose').focus();
+    galleryFocusReturn = null;
+  }
+
+  $('galleryClose').addEventListener('click', closeGallery);
+  $('galleryPrevious').addEventListener('click', () => moveGallery(-1));
+  $('galleryNext').addEventListener('click', () => moveGallery(1));
+  galleryOverlay.addEventListener('click', e => {
+    if (e.target === galleryOverlay) closeGallery();
+  });
+  galleryPhoto.addEventListener('touchstart', e => {
+    galleryTouchX = e.changedTouches[0]?.screenX ?? null;
+  }, { passive: true });
+  galleryPhoto.addEventListener('touchend', e => {
+    if (galleryTouchX === null) return;
+    const delta = (e.changedTouches[0]?.screenX ?? galleryTouchX) - galleryTouchX;
+    galleryTouchX = null;
+    if (Math.abs(delta) > 55) moveGallery(delta < 0 ? 1 : -1);
+  }, { passive: true });
 
   function buildModalContent(type, data) {
     if (type === 'character') return buildCharModal(data);
@@ -992,6 +1087,14 @@
       <div class="modal-divider"></div>
       <div class="modal-section-label">Подробнее</div>
       <p class="modal-text">${esc(place.details || '—')}</p>
+      ${Array.isArray(place.gallery) && place.gallery.length ? `
+        <div class="modal-divider"></div>
+        <div class="modal-section-label">Фотоальбом</div>
+        <button type="button" class="place-gallery-open" data-gallery-open>
+          <img src="${esc(place.gallery[0].src)}" alt="" loading="lazy" decoding="async">
+          <span>Посмотреть фотографии · ${place.gallery.length}</span>
+        </button>
+      ` : ''}
       ${place.tags && place.tags.length ? `<div class="modal-divider"></div>${buildTagsHTML(place.tags)}` : ''}
     `;
   }
