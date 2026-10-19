@@ -18,7 +18,7 @@ const WIKI_DATA = {
       tags: ["россы", "академия", "маг времени", "княжич", "Златоград"],
       relations: [
         { id: "sanko", portrait: "portraits/SANKO.jpg", label: "лучший друг, двоюродный брат" },
-        { id: "yarko", portrait: "portraits/YARKO.jpg", label: "друг" },
+        { id: "yarko", portrait: "portraits/YARKO2.jpg", label: "друг" },
         { id: "ratsha", portrait: "portraits/RATSHA.jpg", label: "друг" },
         { id: "ruman", portrait: "portraits/RUMAN.jpg", label: "друг" },
         { id: "dobromyr", portrait: "portraits/DOBROMIR.jpg", label: "отец" },
@@ -56,7 +56,7 @@ const WIKI_DATA = {
     },
     {
       id: "yarko",
-      portrait: "portraits/YARKO.jpg",
+      portrait: "portraits/YARKO2.jpg",
       name: "Ярко",
       fullName: "Ярко, племянник Мстислава",
       role: "Друг · Боруск · 13 лет",
