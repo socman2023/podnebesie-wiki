@@ -126,7 +126,7 @@
     const types = {
       character: { label: 'Персонажи', items: [] },
       place:     { label: 'Места',      items: [] },
-      nation:    { label: 'Народы',     items: [] },
+      nation:    { label: 'Народы и общности',     items: [] },
       god:       { label: 'Боги',       items: [] },
       holiday:   { label: 'Праздники',  items: [] },
       plotline:  { label: 'Сюжет',      items: [] },
@@ -328,7 +328,7 @@
     const types = {
       character: { label: 'Персонажи', items: [] },
       place:     { label: 'Места',      items: [] },
-      nation:    { label: 'Народы',     items: [] },
+      nation:    { label: 'Народы и общности',     items: [] },
       god:       { label: 'Боги',       items: [] },
       holiday:   { label: 'Праздники',  items: [] },
       plotline:  { label: 'Сюжет',      items: [] },
@@ -457,43 +457,30 @@
   }
 
   // ── RENDER NATIONS ─────────────────────────────────────────
+  function nationMetaFields(nation) {
+    const kind = nation.kind || 'Народ';
+    return [
+      { label: kind === 'Народ' ? 'Родина' : 'Местонахождение', value: nation.homeland },
+      { label: 'Религия', value: nation.religion },
+      { label: 'Жрецы', value: nation.priests },
+      { label: 'Святилище', value: nation.temple }
+    ].filter(field => typeof field.value === 'string' && field.value.trim());
+  }
   function renderNations() {
     const list = $('grid-nations');
     D.nations.forEach(nation => {
       const card = el('div', 'nation-card');
       card.setAttribute('role', 'button');
       card.setAttribute('tabindex', '0');
-
-      const heroNames = (nation.heroes || [])
-        .map(hid => {
-          const c = D.characters.find(ch => ch.id === hid);
-          return c ? c.name : null;
-        })
-        .filter(Boolean);
-
+      const heroNames = (nation.heroes || []).map(id => D.characters.find(c => c.id === id)?.name).filter(Boolean);
+      const fields = nationMetaFields(nation);
       card.innerHTML = `
-        <div class="nation-header">
-          <div>
-            <div class="nation-name">${esc(nation.name)}</div>
-          </div>
-        </div>
+        <div class="nation-header"><div>
+          <div class="nation-name">${esc(nation.name)}</div>
+          <div class="nation-meta-label">${esc(nation.kind || 'Народ')}</div>
+        </div></div>
         <div class="nation-meta">
-          <div class="nation-meta-item">
-            <span class="nation-meta-label">Родина</span>
-            <span class="nation-meta-value">${esc(nation.homeland)}</span>
-          </div>
-          <div class="nation-meta-item">
-            <span class="nation-meta-label">Религия</span>
-            <span class="nation-meta-value">${esc(nation.religion)}</span>
-          </div>
-          <div class="nation-meta-item">
-            <span class="nation-meta-label">Жрецы</span>
-            <span class="nation-meta-value">${esc(nation.priests)}</span>
-          </div>
-          <div class="nation-meta-item">
-            <span class="nation-meta-label">Храм</span>
-            <span class="nation-meta-value">${esc(nation.temple)}</span>
-          </div>
+          ${fields.map(f => `<div class="nation-meta-item"><span class="nation-meta-label">${esc(f.label)}</span><span class="nation-meta-value">${esc(f.value)}</span></div>`).join('')}
         </div>
         <div class="nation-desc">${esc(nation.description)}</div>
         ${heroNames.length ? `<div class="card-tags" style="margin-top:var(--space-3)">${heroNames.map(n => `<span class="card-tag">${esc(n)}</span>`).join('')}</div>` : ''}
@@ -503,7 +490,6 @@
       list.appendChild(card);
     });
   }
-
   // ── RENDER GODS ────────────────────────────────────────────
   function renderGods() {
     const container = $('grid-gods');
@@ -1011,41 +997,20 @@
   }
 
   function buildNationModal(nation) {
-    const heroes = (nation.heroes || [])
-      .map(hid => D.characters.find(c => c.id === hid))
-      .filter(Boolean);
-
-    const heroChips = heroes.map(h =>
-      `<span class="plot-char-chip" role="button" tabindex="0" data-hero-id="${esc(h.id)}">${esc(h.name)}</span>`
-    ).join('');
-
+    const heroes = (nation.heroes || []).map(id => D.characters.find(c => c.id === id)).filter(Boolean);
+    const heroChips = heroes.map(h => `<span class="plot-char-chip" role="button" tabindex="0" data-hero-id="${esc(h.id)}">${esc(h.name)}</span>`).join('');
+    const fields = nationMetaFields(nation);
     return `
-      <div class="modal-type-badge">Народ</div>
+      <div class="modal-type-badge">${esc(nation.kind || 'Народ')}</div>
       <h2 class="modal-title" id="modalTitle">${esc(nation.name)}</h2>
       <div class="modal-meta-grid">
-        <div class="modal-meta-item">
-          <div class="modal-meta-label">Родина</div>
-          <div class="modal-meta-value">${esc(nation.homeland)}</div>
-        </div>
-        <div class="modal-meta-item">
-          <div class="modal-meta-label">Религия</div>
-          <div class="modal-meta-value">${esc(nation.religion)}</div>
-        </div>
-        <div class="modal-meta-item">
-          <div class="modal-meta-label">Жрецы</div>
-          <div class="modal-meta-value">${esc(nation.priests)}</div>
-        </div>
-        <div class="modal-meta-item">
-          <div class="modal-meta-label">Святилище</div>
-          <div class="modal-meta-value">${esc(nation.temple)}</div>
-        </div>
+        ${fields.map(f => `<div class="modal-meta-item"><div class="modal-meta-label">${esc(f.label)}</div><div class="modal-meta-value">${esc(f.value)}</div></div>`).join('')}
       </div>
-      <div class="modal-section-label">Об этом народе</div>
+      <div class="modal-section-label">Описание</div>
       <p class="modal-text">${esc(nation.description)}</p>
       ${heroes.length ? `<div class="modal-divider"></div><div class="modal-section-label">Известные герои</div><div class="modal-plot-badges">${heroChips}</div>` : ''}
     `;
   }
-
   function buildGodModal(god) {
     return `
       <div class="modal-type-badge">Бог · ${esc(god.nation)}</div>
