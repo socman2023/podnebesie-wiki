@@ -475,7 +475,6 @@
         <div class="nation-header">
           <div>
             <div class="nation-name">${esc(nation.name)}</div>
-            <div class="nation-analogue">${esc(nation.analogue)}</div>
           </div>
         </div>
         <div class="nation-meta">
@@ -1021,16 +1020,12 @@
     ).join('');
 
     return `
-      <div class="modal-type-badge">Народ · ${esc(nation.analogue)}</div>
+      <div class="modal-type-badge">Народ</div>
       <h2 class="modal-title" id="modalTitle">${esc(nation.name)}</h2>
       <div class="modal-meta-grid">
         <div class="modal-meta-item">
           <div class="modal-meta-label">Родина</div>
           <div class="modal-meta-value">${esc(nation.homeland)}</div>
-        </div>
-        <div class="modal-meta-item">
-          <div class="modal-meta-label">Аналог</div>
-          <div class="modal-meta-value">${esc(nation.analogue)}</div>
         </div>
         <div class="modal-meta-item">
           <div class="modal-meta-label">Религия</div>
