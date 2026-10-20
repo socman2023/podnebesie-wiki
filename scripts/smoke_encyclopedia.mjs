@@ -18,6 +18,33 @@ try {
         }
       });
       await page.goto('http://127.0.0.1:8765/index.html', { waitUntil: 'networkidle' });
+
+      // Every character modal must display the established role rather than a
+      // duplicate name. Keep the longer fullName values in data for search.
+      const characterErrors = await page.evaluate(() => {
+        const chars = WIKI_DATA.characters;
+        const cards = [...document.querySelectorAll('#section-characters .card')];
+        const errors = [];
+        if (chars.length !== 107) errors.push('Unexpected character count: ' + chars.length);
+        if (!chars.some(c => c.name === 'Люций Грейвард')) errors.push('Люций Грейвард not renamed');
+        if (chars.some(c => c.name === 'Инквизитор Грейвард')) errors.push('Old name still in data');
+        for (const char of chars) {
+          const card = cards.find(node => node.querySelector('.card-name')?.textContent.trim() === char.name);
+          if (!card) {
+            errors.push('Character card not found: ' + char.name);
+            continue;
+          }
+          card.click();
+          const title = document.querySelector('#modalBody .modal-title')?.textContent.trim();
+          const subtitle = document.querySelector('#modalBody .modal-subtitle')?.textContent.trim();
+          if (title !== char.name || subtitle !== char.role || subtitle === char.name) {
+            errors.push('Wrong modal title/subtitle: ' + char.name + ' [' + title + ' / ' + subtitle + ']');
+          }
+          document.getElementById('modalClose').click();
+        }
+        return errors;
+      });
+      issues.push(...characterErrors.map(error => `${key}: ${error}`));
       await page.locator('[data-tab="academy"]').click();
       const album = page.locator('#academy-gallery-open');
       if (await album.count() !== 1) issues.push(`${key}: missing Academy album button`);
