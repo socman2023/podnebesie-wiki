@@ -97,6 +97,38 @@ try {
         const topVisible = await page.locator('#academy-schedule-scroll-controls').isVisible();
         if (!scrolls || !topVisible) issues.push(`${key}: mobile schedule scroll controls missing`);
       }
+      // Zlatograd uses the same location-gallery viewer as the Academy.
+      // Check it across desktop/mobile, dark/light themes and keyboard controls.
+      await page.locator('[data-tab="places"]').click();
+      const city = page.locator('#grid-places .card').filter({ has: page.locator('.card-name', { hasText: /^Златоград$/ }) });
+      if (await city.count() !== 1) issues.push(`${key}: Zlatograd location card not unique`);
+      await city.click();
+      const cityButton = page.locator('#modalBody [data-gallery-open]');
+      if (!(await cityButton.isVisible())) issues.push(`${key}: Zlatograd gallery button missing`);
+      await cityButton.click();
+      if (!(await overlay.isVisible())) issues.push(`${key}: Zlatograd gallery did not open`);
+      if ((await counter.innerText()) !== '1 / 25') issues.push(`${key}: Zlatograd photo count incorrect`);
+      if ((await caption.innerText()) !== 'Вид на Златоград с противоположного берега реки') {
+        issues.push(`${key}: incorrect first Zlatograd caption`);
+      }
+      await page.waitForFunction(() => {
+        const img = document.getElementById('galleryPhoto');
+        return img?.complete && img.naturalWidth > 0 && img.src.endsWith('/zlatograd/01.webp');
+      });
+      await page.locator('#galleryPrevious').click();
+      if ((await counter.innerText()) !== '25 / 25') issues.push(`${key}: Zlatograd wrap-around failed`);
+      if ((await caption.innerText()) !== 'Задний двор княжеского дворца') {
+        issues.push(`${key}: incorrect last Zlatograd caption`);
+      }
+      await page.waitForFunction(() => {
+        const img = document.getElementById('galleryPhoto');
+        return img?.complete && img.naturalWidth > 0 && img.src.endsWith('/zlatograd/25.webp');
+      });
+      await page.keyboard.press('ArrowRight');
+      if ((await counter.innerText()) !== '1 / 25') issues.push(`${key}: Zlatograd keyboard navigation failed`);
+      await page.keyboard.press('Escape');
+      if (await overlay.isVisible()) issues.push(`${key}: Zlatograd gallery did not close`);
+      await page.locator('#modalClose').click();
       await page.close();
       console.log(`PASS browser checks ${key}`);
     }
