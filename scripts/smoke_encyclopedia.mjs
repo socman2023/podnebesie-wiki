@@ -23,13 +23,13 @@ try {
       // duplicate name. Keep the longer fullName values in data for search.
       const characterErrors = await page.evaluate(() => {
         const chars = WIKI_DATA.characters;
-        const cards = [...document.querySelectorAll('#section-characters .card')];
+        const cards = [...document.querySelectorAll('#section-characters .card, #section-characters .student-card')];
         const errors = [];
         if (chars.length !== 107) errors.push('Unexpected character count: ' + chars.length);
         if (!chars.some(c => c.name === 'Люций Грейвард')) errors.push('Люций Грейвард not renamed');
         if (chars.some(c => c.name === 'Инквизитор Грейвард')) errors.push('Old name still in data');
         for (const char of chars) {
-          const card = cards.find(node => node.querySelector('.card-name')?.textContent.trim() === char.name);
+          const card = cards.find(node => node.querySelector('.card-name, .student-name')?.textContent.trim() === char.name);
           if (!card) {
             errors.push('Character card not found: ' + char.name);
             continue;
