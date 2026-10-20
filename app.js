@@ -784,6 +784,41 @@
       tbody.appendChild(tr);
     });
     tbl.appendChild(tbody);
+
+    // The schedule can exceed the viewport: keep a visible scrollbar above it,
+    // while retaining native horizontal scrolling and swipe support below.
+    const scrollArea = $('academy-schedule-scroll');
+    const topControls = $('academy-schedule-scroll-controls');
+    const topScroll = $('academy-schedule-scroll-top');
+    const spacer = $('academy-schedule-scroll-spacer');
+    if (scrollArea && topControls && topScroll && spacer) {
+      const updateScrollWidth = () => {
+        const contentWidth = tbl.scrollWidth;
+        const viewportWidth = scrollArea.clientWidth;
+        topControls.hidden = !viewportWidth || contentWidth <= viewportWidth + 1;
+        spacer.style.width = Math.max(contentWidth, viewportWidth) + 'px';
+        topScroll.scrollLeft = scrollArea.scrollLeft;
+      };
+
+      topScroll.addEventListener('scroll', () => {
+        if (Math.abs(scrollArea.scrollLeft - topScroll.scrollLeft) > 1) {
+          scrollArea.scrollLeft = topScroll.scrollLeft;
+        }
+      }, { passive: true });
+      scrollArea.addEventListener('scroll', () => {
+        if (Math.abs(topScroll.scrollLeft - scrollArea.scrollLeft) > 1) {
+          topScroll.scrollLeft = scrollArea.scrollLeft;
+        }
+      }, { passive: true });
+
+      if (window.ResizeObserver) {
+        const resizeObserver = new ResizeObserver(updateScrollWidth);
+        resizeObserver.observe(scrollArea);
+        resizeObserver.observe(tbl);
+      }
+      window.addEventListener('resize', updateScrollWidth);
+      requestAnimationFrame(updateScrollWidth);
+    }
   }
 
   function renderMenuTable() {
