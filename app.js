@@ -640,7 +640,7 @@
         <div class="academy-classes-summary">${classChips}</div>
         ${academyPhotos.length ? `
           <button type="button" class="place-gallery-open academy-album-button" id="academy-gallery-open">
-            <img src="${esc(academyPhotos[0].src)}" alt="" loading="lazy" decoding="async">
+            <img src="${esc(academyPhotos[0].thumb || academyPhotos[0].src)}" alt="" loading="lazy" decoding="async">
             <span>Фотоальбом Академии · ${academyPhotos.length} фотографий →</span>
           </button>
         ` : ''}
@@ -1020,7 +1020,7 @@
       btn.setAttribute('aria-label', 'Показать фото ' + (i + 1) + ': ' + (item.caption || ''));
       btn.setAttribute('aria-pressed', String(i === galleryIndex));
       const img = document.createElement('img');
-      img.src = item.src;
+      img.src = item.thumb || item.src;
       img.alt = '';
       img.loading = 'lazy';
       img.decoding = 'async';
@@ -1135,7 +1135,7 @@
         <div class="modal-divider"></div>
         <div class="modal-section-label">Фотоальбом</div>
         <button type="button" class="place-gallery-open" data-gallery-open>
-          <img src="${esc(place.gallery[0].src)}" alt="" loading="lazy" decoding="async">
+          <img src="${esc(place.gallery[0].thumb || place.gallery[0].src)}" alt="" loading="lazy" decoding="async">
           <span>Посмотреть фотографии · ${place.gallery.length}</span>
         </button>
       ` : ''}
