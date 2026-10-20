@@ -1,9 +1,9 @@
 {
   "original_count": 81,
-  "converted_count": 80,
+  "converted_count": 81,
   "original_total_bytes": 111931026,
-  "converted_total_bytes": 32984218,
-  "thumbnails_total_bytes": 1469782,
+  "converted_total_bytes": 33604648,
+  "thumbnails_total_bytes": 1497402,
   "images": [
     {
       "file": "01.jpg",
@@ -1443,6 +1443,24 @@
       "thumb_dimensions": [
         320,
         180
+      ]
+    },
+    {
+      "file": "77.jpg",
+      "source_bytes": 1663000,
+      "webp_bytes": 620430,
+      "thumb_bytes": 27620,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
       ]
     }
   ]
