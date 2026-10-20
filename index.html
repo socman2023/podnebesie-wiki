@@ -181,7 +181,13 @@
       <!-- Schedule -->
       <div class="char-group">
         <h3 class="group-label">Расписание класса Арбориса (6-й год)</h3>
-        <div class="schedule-wrap">
+        <div class="schedule-scroll-controls" id="academy-schedule-scroll-controls" hidden>
+          <p class="schedule-scroll-hint">← Прокрутите расписание, чтобы увидеть остальные дни →</p>
+          <div class="schedule-scroll-top" id="academy-schedule-scroll-top" role="region" aria-label="Верхняя горизонтальная прокрутка расписания" tabindex="0">
+            <div id="academy-schedule-scroll-spacer" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="schedule-wrap" id="academy-schedule-scroll" role="region" aria-label="Расписание занятий по дням недели" tabindex="0">
           <table class="schedule-table" id="academy-schedule"></table>
         </div>
       </div>
