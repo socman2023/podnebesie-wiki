@@ -64,7 +64,7 @@
   <nav class="tab-nav" role="tablist" aria-label="Разделы вики">
     <button class="tab-btn active" role="tab" aria-selected="true"  data-tab="characters" aria-controls="section-characters">Персонажи</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-tab="places"     aria-controls="section-places">Места</button>
-    <button class="tab-btn" role="tab" aria-selected="false" data-tab="nations"    aria-controls="section-nations">Народы</button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-tab="nations"    aria-controls="section-nations">Народы и общности</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-tab="gods"       aria-controls="section-gods">Боги</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-tab="holidays"   aria-controls="section-holidays">Праздники</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-tab="plotlines"  aria-controls="section-plotlines">Сюжет</button>
@@ -131,7 +131,7 @@
 
     <!-- НАРОДЫ -->
     <section class="tab-section" id="section-nations" role="tabpanel" aria-labelledby="tab-nations">
-      <h2 class="section-title">Народы Поднебесья</h2>
+      <h2 class="section-title">Народы и общности Поднебесья</h2>
       <div class="nations-list" id="grid-nations"></div>
     </section>
 
@@ -180,8 +180,14 @@
 
       <!-- Schedule -->
       <div class="char-group">
-        <h3 class="group-label">Недельное расписание</h3>
-        <div class="schedule-wrap">
+        <h3 class="group-label">Расписание класса Арбориса (6-й год)</h3>
+        <div class="schedule-scroll-controls" id="academy-schedule-scroll-controls" hidden>
+          <p class="schedule-scroll-hint">← Прокрутите расписание, чтобы увидеть остальные дни →</p>
+          <div class="schedule-scroll-top" id="academy-schedule-scroll-top" role="region" aria-label="Верхняя горизонтальная прокрутка расписания" tabindex="0">
+            <div id="academy-schedule-scroll-spacer" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="schedule-wrap" id="academy-schedule-scroll" role="region" aria-label="Расписание занятий по дням недели" tabindex="0">
           <table class="schedule-table" id="academy-schedule"></table>
         </div>
       </div>
@@ -239,8 +245,23 @@
   </div>
 
   <!-- Scripts -->
+  <!-- Фотоальбом локации (используется только при наличии gallery в данных) -->
+  <div class="gallery-overlay" id="galleryOverlay" role="dialog" aria-modal="true" aria-label="Фотоальбом локации" hidden>
+    <section class="gallery-sheet">
+      <header class="gallery-toolbar">
+        <span id="galleryCount" aria-live="polite">1 / 1</span>
+        <button type="button" id="galleryClose" class="gallery-close" aria-label="Закрыть фотоальбом">✕</button>
+      </header>
+      <div class="gallery-stage">
+        <button type="button" id="galleryPrevious" class="gallery-nav" aria-label="Предыдущее фото">‹</button>
+        <img id="galleryPhoto" alt="" decoding="async">
+        <button type="button" id="galleryNext" class="gallery-nav" aria-label="Следующее фото">›</button>
+      </div>
+      <p id="galleryCaption" class="gallery-caption"></p>
+      <div id="galleryThumbs" class="gallery-thumbnails" aria-label="Миниатюры фотографий"></div>
+    </section>
+  </div>
   <script src="data.js"></script>
   <script src="app.js"></script>
-  <script src="editor.js"></script>
 </body>
 </html>

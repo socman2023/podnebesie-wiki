@@ -126,7 +126,7 @@
     const types = {
       character: { label: 'Персонажи', items: [] },
       place:     { label: 'Места',      items: [] },
-      nation:    { label: 'Народы',     items: [] },
+      nation:    { label: 'Народы и общности',     items: [] },
       god:       { label: 'Боги',       items: [] },
       holiday:   { label: 'Праздники',  items: [] },
       plotline:  { label: 'Сюжет',      items: [] },
@@ -328,7 +328,7 @@
     const types = {
       character: { label: 'Персонажи', items: [] },
       place:     { label: 'Места',      items: [] },
-      nation:    { label: 'Народы',     items: [] },
+      nation:    { label: 'Народы и общности',     items: [] },
       god:       { label: 'Боги',       items: [] },
       holiday:   { label: 'Праздники',  items: [] },
       plotline:  { label: 'Сюжет',      items: [] },
@@ -457,44 +457,30 @@
   }
 
   // ── RENDER NATIONS ─────────────────────────────────────────
+  function nationMetaFields(nation) {
+    const kind = nation.kind || 'Народ';
+    return [
+      { label: kind === 'Народ' ? 'Родина' : 'Местонахождение', value: nation.homeland },
+      { label: 'Религия', value: nation.religion },
+      { label: 'Жрецы', value: nation.priests },
+      { label: 'Святилище', value: nation.temple }
+    ].filter(field => typeof field.value === 'string' && field.value.trim());
+  }
   function renderNations() {
     const list = $('grid-nations');
     D.nations.forEach(nation => {
       const card = el('div', 'nation-card');
       card.setAttribute('role', 'button');
       card.setAttribute('tabindex', '0');
-
-      const heroNames = (nation.heroes || [])
-        .map(hid => {
-          const c = D.characters.find(ch => ch.id === hid);
-          return c ? c.name : null;
-        })
-        .filter(Boolean);
-
+      const heroNames = (nation.heroes || []).map(id => D.characters.find(c => c.id === id)?.name).filter(Boolean);
+      const fields = nationMetaFields(nation);
       card.innerHTML = `
-        <div class="nation-header">
-          <div>
-            <div class="nation-name">${esc(nation.name)}</div>
-            <div class="nation-analogue">${esc(nation.analogue)}</div>
-          </div>
-        </div>
+        <div class="nation-header"><div>
+          <div class="nation-name">${esc(nation.name)}</div>
+          <div class="nation-meta-label">${esc(nation.kind || 'Народ')}</div>
+        </div></div>
         <div class="nation-meta">
-          <div class="nation-meta-item">
-            <span class="nation-meta-label">Родина</span>
-            <span class="nation-meta-value">${esc(nation.homeland)}</span>
-          </div>
-          <div class="nation-meta-item">
-            <span class="nation-meta-label">Религия</span>
-            <span class="nation-meta-value">${esc(nation.religion)}</span>
-          </div>
-          <div class="nation-meta-item">
-            <span class="nation-meta-label">Жрецы</span>
-            <span class="nation-meta-value">${esc(nation.priests)}</span>
-          </div>
-          <div class="nation-meta-item">
-            <span class="nation-meta-label">Храм</span>
-            <span class="nation-meta-value">${esc(nation.temple)}</span>
-          </div>
+          ${fields.map(f => `<div class="nation-meta-item"><span class="nation-meta-label">${esc(f.label)}</span><span class="nation-meta-value">${esc(f.value)}</span></div>`).join('')}
         </div>
         <div class="nation-desc">${esc(nation.description)}</div>
         ${heroNames.length ? `<div class="card-tags" style="margin-top:var(--space-3)">${heroNames.map(n => `<span class="card-tag">${esc(n)}</span>`).join('')}</div>` : ''}
@@ -504,7 +490,6 @@
       list.appendChild(card);
     });
   }
-
   // ── RENDER GODS ────────────────────────────────────────────
   function renderGods() {
     const container = $('grid-gods');
@@ -636,6 +621,8 @@
     // ── Hero block ──────────────────────────────────────────
     const heroBlock = $('academy-hero-block');
     if (heroBlock) {
+      const academyPlace = D.places.find(place => place.id === 'akademiya');
+      const academyPhotos = academyPlace && Array.isArray(academyPlace.gallery) ? academyPlace.gallery : [];
       const classChips = (academy.classes || []).map(cls => {
         const teacher = D.characters.find(c => c.id === cls.teacher);
         const teacherName = teacher ? teacher.name : cls.teacher;
@@ -651,7 +638,14 @@
         <div class="academy-hero-title">Академия магии Светозара</div>
         <div class="academy-hero-desc">${esc(academy.description)}</div>
         <div class="academy-classes-summary">${classChips}</div>
+        ${academyPhotos.length ? `
+          <button type="button" class="place-gallery-open academy-album-button" id="academy-gallery-open">
+            <img src="${esc(academyPhotos[0].thumb || academyPhotos[0].src)}" alt="" loading="lazy" decoding="async">
+            <span>Фотоальбом Академии · ${academyPhotos.length} фотографий →</span>
+          </button>
+        ` : ''}
       `;
+      heroBlock.querySelector('#academy-gallery-open')?.addEventListener('click', () => openGallery(academyPhotos));
     }
 
     // ── Classes grid (summary cards) ───────────────────────
@@ -702,7 +696,7 @@
     const coursesEl = $('academy-courses');
     if (coursesEl && academy.courses) {
       const courseGroups = [
-        { key: 'main',    label: 'Основные курсы' },
+        { key: 'main',    label: 'Обязательные дисциплины' },
         { key: 'special', label: 'Спецкурсы' },
         { key: 'elective',label: 'Факультативы' },
       ];
@@ -752,8 +746,8 @@
 
   const DAY_KEYS  = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
   const DAY_NAMES = ['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота','Воскресенье'];
-  const MEAL_KEYS  = ['breakfast','snack','lunch','dinner'];
-  const MEAL_NAMES = ['Завтрак','Перекус','Обед','Ужин'];
+  const MEAL_KEYS  = ['breakfast','snack','lunch','afternoon','dinner'];
+  const MEAL_NAMES = ['Завтрак','Перекус','Обед','Полдник','Ужин'];
 
   function renderScheduleTable() {
     const tbl = $('academy-schedule');
@@ -799,6 +793,41 @@
       tbody.appendChild(tr);
     });
     tbl.appendChild(tbody);
+
+    // The schedule can exceed the viewport: keep a visible scrollbar above it,
+    // while retaining native horizontal scrolling and swipe support below.
+    const scrollArea = $('academy-schedule-scroll');
+    const topControls = $('academy-schedule-scroll-controls');
+    const topScroll = $('academy-schedule-scroll-top');
+    const spacer = $('academy-schedule-scroll-spacer');
+    if (scrollArea && topControls && topScroll && spacer) {
+      const updateScrollWidth = () => {
+        const contentWidth = tbl.scrollWidth;
+        const viewportWidth = scrollArea.clientWidth;
+        topControls.hidden = !viewportWidth || contentWidth <= viewportWidth + 1;
+        spacer.style.width = Math.max(contentWidth, viewportWidth) + 'px';
+        topScroll.scrollLeft = scrollArea.scrollLeft;
+      };
+
+      topScroll.addEventListener('scroll', () => {
+        if (Math.abs(scrollArea.scrollLeft - topScroll.scrollLeft) > 1) {
+          scrollArea.scrollLeft = topScroll.scrollLeft;
+        }
+      }, { passive: true });
+      scrollArea.addEventListener('scroll', () => {
+        if (Math.abs(topScroll.scrollLeft - scrollArea.scrollLeft) > 1) {
+          topScroll.scrollLeft = scrollArea.scrollLeft;
+        }
+      }, { passive: true });
+
+      if (window.ResizeObserver) {
+        const resizeObserver = new ResizeObserver(updateScrollWidth);
+        resizeObserver.observe(scrollArea);
+        resizeObserver.observe(tbl);
+      }
+      window.addEventListener('resize', updateScrollWidth);
+      requestAnimationFrame(updateScrollWidth);
+    }
   }
 
   function renderMenuTable() {
@@ -899,6 +928,12 @@
     if (e.target === overlay) closeModal();
   });
   document.addEventListener('keydown', e => {
+    if (!galleryOverlay.hasAttribute('hidden')) {
+      if (e.key === 'Escape') { e.preventDefault(); closeGallery(); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); moveGallery(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); moveGallery(-1); }
+      return;
+    }
     if (e.key === 'Escape') closeModal();
   });
 
@@ -929,15 +964,104 @@
       });
     });
 
+    if (type === 'place' && Array.isArray(data.gallery) && data.gallery.length) {
+      modalBody.querySelector('[data-gallery-open]')?.addEventListener('click', () => openGallery(data.gallery));
+    }
+
     overlay.removeAttribute('hidden');
     document.body.style.overflow = 'hidden';
     $('modalClose').focus();
   }
 
   function closeModal() {
+    if (!galleryOverlay.hasAttribute('hidden')) closeGallery();
     overlay.setAttribute('hidden', '');
     document.body.style.overflow = '';
   }
+
+
+  // ── LOCATION PHOTO GALLERIES ────────────────────────────────
+  // Only the selected image is shown at full size; 7 thumbnails per group.
+  const galleryOverlay = $('galleryOverlay');
+  const galleryPhoto = $('galleryPhoto');
+  const galleryCaption = $('galleryCaption');
+  const galleryCount = $('galleryCount');
+  const galleryThumbs = $('galleryThumbs');
+  let galleryItems = [];
+  let galleryIndex = 0;
+  let galleryFocusReturn = null;
+  let galleryTouchX = null;
+
+  function openGallery(items) {
+    if (!Array.isArray(items) || !items.length) return;
+    galleryItems = items;
+    galleryIndex = 0;
+    galleryFocusReturn = document.activeElement;
+    galleryOverlay.removeAttribute('hidden');
+    overlay.setAttribute('aria-hidden', 'true');
+    renderGallery();
+    $('galleryClose').focus();
+  }
+
+  function renderGallery() {
+    if (!galleryItems.length) return;
+    const current = galleryItems[galleryIndex];
+    galleryPhoto.src = current.src;
+    galleryPhoto.alt = current.caption || 'Фотография локации';
+    galleryCaption.textContent = current.caption || '';
+    galleryCount.textContent = (galleryIndex + 1) + ' / ' + galleryItems.length;
+    const start = Math.floor(galleryIndex / 7) * 7;
+    galleryThumbs.replaceChildren();
+    galleryItems.slice(start, start + 7).forEach((item, offset) => {
+      const i = start + offset;
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'gallery-thumb' + (i === galleryIndex ? ' is-active' : '');
+      btn.setAttribute('aria-label', 'Показать фото ' + (i + 1) + ': ' + (item.caption || ''));
+      btn.setAttribute('aria-pressed', String(i === galleryIndex));
+      const img = document.createElement('img');
+      img.src = item.thumb || item.src;
+      img.alt = '';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      btn.appendChild(img);
+      btn.addEventListener('click', () => { galleryIndex = i; renderGallery(); });
+      galleryThumbs.appendChild(btn);
+    });
+  }
+
+  function moveGallery(direction) {
+    if (!galleryItems.length) return;
+    galleryIndex = (galleryIndex + direction + galleryItems.length) % galleryItems.length;
+    renderGallery();
+  }
+
+  function closeGallery() {
+    galleryOverlay.setAttribute('hidden', '');
+    overlay.removeAttribute('aria-hidden');
+    galleryPhoto.removeAttribute('src');
+    galleryThumbs.replaceChildren();
+    galleryItems = [];
+    if (galleryFocusReturn?.isConnected) galleryFocusReturn.focus();
+    else $('modalClose').focus();
+    galleryFocusReturn = null;
+  }
+
+  $('galleryClose').addEventListener('click', closeGallery);
+  $('galleryPrevious').addEventListener('click', () => moveGallery(-1));
+  $('galleryNext').addEventListener('click', () => moveGallery(1));
+  galleryOverlay.addEventListener('click', e => {
+    if (e.target === galleryOverlay) closeGallery();
+  });
+  galleryPhoto.addEventListener('touchstart', e => {
+    galleryTouchX = e.changedTouches[0]?.screenX ?? null;
+  }, { passive: true });
+  galleryPhoto.addEventListener('touchend', e => {
+    if (galleryTouchX === null) return;
+    const delta = (e.changedTouches[0]?.screenX ?? galleryTouchX) - galleryTouchX;
+    galleryTouchX = null;
+    if (Math.abs(delta) > 55) moveGallery(delta < 0 ? 1 : -1);
+  }, { passive: true });
 
   function buildModalContent(type, data) {
     if (type === 'character') return buildCharModal(data);
@@ -985,7 +1109,7 @@
     return `
       <div class="modal-type-badge">${esc(groupLabel[char.group] || 'Персонаж')}</div>
       <h2 class="modal-title" id="modalTitle">${esc(char.name)}</h2>
-      <div class="modal-subtitle">${esc(char.fullName)}</div>
+      <div class="modal-subtitle">${esc(char.role)}</div>
       ${char.portrait ? `<img class="modal-portrait" src="${char.portrait}" alt="${esc(char.name)}" loading="lazy">` : ''}
       <div class="modal-section-label">О персонаже</div>
       <p class="modal-text">${esc(char.description)}</p>
@@ -1007,50 +1131,33 @@
       <div class="modal-divider"></div>
       <div class="modal-section-label">Подробнее</div>
       <p class="modal-text">${esc(place.details || '—')}</p>
+      ${Array.isArray(place.gallery) && place.gallery.length ? `
+        <div class="modal-divider"></div>
+        <div class="modal-section-label">Фотоальбом</div>
+        <button type="button" class="place-gallery-open" data-gallery-open>
+          <img src="${esc(place.gallery[0].thumb || place.gallery[0].src)}" alt="" loading="lazy" decoding="async">
+          <span>Посмотреть фотографии · ${place.gallery.length}</span>
+        </button>
+      ` : ''}
       ${place.tags && place.tags.length ? `<div class="modal-divider"></div>${buildTagsHTML(place.tags)}` : ''}
     `;
   }
 
   function buildNationModal(nation) {
-    const heroes = (nation.heroes || [])
-      .map(hid => D.characters.find(c => c.id === hid))
-      .filter(Boolean);
-
-    const heroChips = heroes.map(h =>
-      `<span class="plot-char-chip" role="button" tabindex="0" data-hero-id="${esc(h.id)}">${esc(h.name)}</span>`
-    ).join('');
-
+    const heroes = (nation.heroes || []).map(id => D.characters.find(c => c.id === id)).filter(Boolean);
+    const heroChips = heroes.map(h => `<span class="plot-char-chip" role="button" tabindex="0" data-hero-id="${esc(h.id)}">${esc(h.name)}</span>`).join('');
+    const fields = nationMetaFields(nation);
     return `
-      <div class="modal-type-badge">Народ · ${esc(nation.analogue)}</div>
+      <div class="modal-type-badge">${esc(nation.kind || 'Народ')}</div>
       <h2 class="modal-title" id="modalTitle">${esc(nation.name)}</h2>
       <div class="modal-meta-grid">
-        <div class="modal-meta-item">
-          <div class="modal-meta-label">Родина</div>
-          <div class="modal-meta-value">${esc(nation.homeland)}</div>
-        </div>
-        <div class="modal-meta-item">
-          <div class="modal-meta-label">Аналог</div>
-          <div class="modal-meta-value">${esc(nation.analogue)}</div>
-        </div>
-        <div class="modal-meta-item">
-          <div class="modal-meta-label">Религия</div>
-          <div class="modal-meta-value">${esc(nation.religion)}</div>
-        </div>
-        <div class="modal-meta-item">
-          <div class="modal-meta-label">Жрецы</div>
-          <div class="modal-meta-value">${esc(nation.priests)}</div>
-        </div>
-        <div class="modal-meta-item">
-          <div class="modal-meta-label">Святилище</div>
-          <div class="modal-meta-value">${esc(nation.temple)}</div>
-        </div>
+        ${fields.map(f => `<div class="modal-meta-item"><div class="modal-meta-label">${esc(f.label)}</div><div class="modal-meta-value">${esc(f.value)}</div></div>`).join('')}
       </div>
-      <div class="modal-section-label">Об этом народе</div>
+      <div class="modal-section-label">Описание</div>
       <p class="modal-text">${esc(nation.description)}</p>
       ${heroes.length ? `<div class="modal-divider"></div><div class="modal-section-label">Известные герои</div><div class="modal-plot-badges">${heroChips}</div>` : ''}
     `;
   }
-
   function buildGodModal(god) {
     return `
       <div class="modal-type-badge">Бог · ${esc(god.nation)}</div>

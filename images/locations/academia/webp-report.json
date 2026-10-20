@@ -1,0 +1,1467 @@
+{
+  "original_count": 81,
+  "converted_count": 81,
+  "original_total_bytes": 111931026,
+  "converted_total_bytes": 33604648,
+  "thumbnails_total_bytes": 1497402,
+  "images": [
+    {
+      "file": "01.jpg",
+      "source_bytes": 1524542,
+      "webp_bytes": 472042,
+      "thumb_bytes": 18930,
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "webp_dimensions": [
+        1600,
+        900
+      ],
+      "thumb_dimensions": [
+        320,
+        180
+      ]
+    },
+    {
+      "file": "02.jpg",
+      "source_bytes": 1576166,
+      "webp_bytes": 569012,
+      "thumb_bytes": 22106,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "03a.jpg",
+      "source_bytes": 1386869,
+      "webp_bytes": 422492,
+      "thumb_bytes": 15908,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "03b.jpg",
+      "source_bytes": 1424452,
+      "webp_bytes": 466508,
+      "thumb_bytes": 17680,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "04.jpg",
+      "source_bytes": 1583975,
+      "webp_bytes": 543668,
+      "thumb_bytes": 29188,
+      "source_dimensions": [
+        1449,
+        1086
+      ],
+      "webp_dimensions": [
+        1449,
+        1086
+      ],
+      "thumb_dimensions": [
+        320,
+        240
+      ]
+    },
+    {
+      "file": "05.jpg",
+      "source_bytes": 1222726,
+      "webp_bytes": 317384,
+      "thumb_bytes": 15150,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "06.jpg",
+      "source_bytes": 1140166,
+      "webp_bytes": 260916,
+      "thumb_bytes": 11318,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "07.jpg",
+      "source_bytes": 1276070,
+      "webp_bytes": 340892,
+      "thumb_bytes": 16504,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "08.jpg",
+      "source_bytes": 1282934,
+      "webp_bytes": 334184,
+      "thumb_bytes": 14990,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "09.jpg",
+      "source_bytes": 1352644,
+      "webp_bytes": 358038,
+      "thumb_bytes": 14930,
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "webp_dimensions": [
+        1600,
+        900
+      ],
+      "thumb_dimensions": [
+        320,
+        180
+      ]
+    },
+    {
+      "file": "10.jpg",
+      "source_bytes": 1149457,
+      "webp_bytes": 257442,
+      "thumb_bytes": 13202,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "11.jpg",
+      "source_bytes": 1229055,
+      "webp_bytes": 305704,
+      "thumb_bytes": 15182,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "12a.jpg",
+      "source_bytes": 1311359,
+      "webp_bytes": 358100,
+      "thumb_bytes": 17102,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "12b.jpg",
+      "source_bytes": 1186427,
+      "webp_bytes": 287456,
+      "thumb_bytes": 14958,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "13.jpg",
+      "source_bytes": 1149763,
+      "webp_bytes": 259692,
+      "thumb_bytes": 12970,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "14.jpg",
+      "source_bytes": 1232716,
+      "webp_bytes": 308664,
+      "thumb_bytes": 16040,
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_dimensions": [
+        1448,
+        1086
+      ],
+      "thumb_dimensions": [
+        320,
+        240
+      ]
+    },
+    {
+      "file": "15.jpg",
+      "source_bytes": 1223313,
+      "webp_bytes": 286538,
+      "thumb_bytes": 15778,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "16.jpg",
+      "source_bytes": 1480346,
+      "webp_bytes": 480904,
+      "thumb_bytes": 20606,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "17.jpg",
+      "source_bytes": 1623287,
+      "webp_bytes": 593462,
+      "thumb_bytes": 27742,
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_dimensions": [
+        1448,
+        1086
+      ],
+      "thumb_dimensions": [
+        320,
+        240
+      ]
+    },
+    {
+      "file": "18.jpg",
+      "source_bytes": 1721874,
+      "webp_bytes": 691686,
+      "thumb_bytes": 27246,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "19.jpg",
+      "source_bytes": 1624197,
+      "webp_bytes": 607562,
+      "thumb_bytes": 23552,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "20.jpg",
+      "source_bytes": 1566077,
+      "webp_bytes": 558744,
+      "thumb_bytes": 24270,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "21.jpg",
+      "source_bytes": 1503290,
+      "webp_bytes": 506474,
+      "thumb_bytes": 27352,
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_dimensions": [
+        1448,
+        1086
+      ],
+      "thumb_dimensions": [
+        320,
+        240
+      ]
+    },
+    {
+      "file": "22.jpg",
+      "source_bytes": 1418765,
+      "webp_bytes": 459770,
+      "thumb_bytes": 19694,
+      "source_dimensions": [
+        1024,
+        1536
+      ],
+      "webp_dimensions": [
+        1024,
+        1536
+      ],
+      "thumb_dimensions": [
+        213,
+        320
+      ]
+    },
+    {
+      "file": "23.jpg",
+      "source_bytes": 1522525,
+      "webp_bytes": 509990,
+      "thumb_bytes": 21322,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "24a.jpg",
+      "source_bytes": 1620469,
+      "webp_bytes": 546904,
+      "thumb_bytes": 21330,
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "webp_dimensions": [
+        1600,
+        900
+      ],
+      "thumb_dimensions": [
+        320,
+        180
+      ]
+    },
+    {
+      "file": "24v.jpg",
+      "source_bytes": 1513154,
+      "webp_bytes": 482604,
+      "thumb_bytes": 19600,
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "webp_dimensions": [
+        1600,
+        900
+      ],
+      "thumb_dimensions": [
+        320,
+        180
+      ]
+    },
+    {
+      "file": "25.jpg",
+      "source_bytes": 1531181,
+      "webp_bytes": 542888,
+      "thumb_bytes": 21586,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "26.jpg",
+      "source_bytes": 1548186,
+      "webp_bytes": 574226,
+      "thumb_bytes": 21596,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "27.jpg",
+      "source_bytes": 1405748,
+      "webp_bytes": 427572,
+      "thumb_bytes": 28238,
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "webp_dimensions": [
+        1254,
+        1254
+      ],
+      "thumb_dimensions": [
+        320,
+        320
+      ]
+    },
+    {
+      "file": "28.jpg",
+      "source_bytes": 1359190,
+      "webp_bytes": 410098,
+      "thumb_bytes": 17452,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "29.jpg",
+      "source_bytes": 1446386,
+      "webp_bytes": 483818,
+      "thumb_bytes": 24042,
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_dimensions": [
+        1448,
+        1086
+      ],
+      "thumb_dimensions": [
+        320,
+        240
+      ]
+    },
+    {
+      "file": "30a.jpg",
+      "source_bytes": 1388458,
+      "webp_bytes": 430630,
+      "thumb_bytes": 16268,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "30b.jpg",
+      "source_bytes": 1184799,
+      "webp_bytes": 279644,
+      "thumb_bytes": 14628,
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_dimensions": [
+        1448,
+        1086
+      ],
+      "thumb_dimensions": [
+        320,
+        240
+      ]
+    },
+    {
+      "file": "31a.jpg",
+      "source_bytes": 1170314,
+      "webp_bytes": 270820,
+      "thumb_bytes": 15012,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "31v.jpg",
+      "source_bytes": 1412665,
+      "webp_bytes": 409554,
+      "thumb_bytes": 19024,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "32a.jpg",
+      "source_bytes": 1265609,
+      "webp_bytes": 305406,
+      "thumb_bytes": 12326,
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "webp_dimensions": [
+        1600,
+        900
+      ],
+      "thumb_dimensions": [
+        320,
+        180
+      ]
+    },
+    {
+      "file": "32b.jpg",
+      "source_bytes": 1352986,
+      "webp_bytes": 347454,
+      "thumb_bytes": 13466,
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "webp_dimensions": [
+        1600,
+        900
+      ],
+      "thumb_dimensions": [
+        320,
+        180
+      ]
+    },
+    {
+      "file": "33.jpg",
+      "source_bytes": 1380068,
+      "webp_bytes": 396972,
+      "thumb_bytes": 19612,
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_dimensions": [
+        1448,
+        1086
+      ],
+      "thumb_dimensions": [
+        320,
+        240
+      ]
+    },
+    {
+      "file": "34.jpg",
+      "source_bytes": 1278077,
+      "webp_bytes": 316600,
+      "thumb_bytes": 18116,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "35b.jpg",
+      "source_bytes": 1292311,
+      "webp_bytes": 361334,
+      "thumb_bytes": 13540,
+      "source_dimensions": [
+        1024,
+        1536
+      ],
+      "webp_dimensions": [
+        1024,
+        1536
+      ],
+      "thumb_dimensions": [
+        213,
+        320
+      ]
+    },
+    {
+      "file": "36a.jpg",
+      "source_bytes": 1350697,
+      "webp_bytes": 342538,
+      "thumb_bytes": 15906,
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "webp_dimensions": [
+        1600,
+        900
+      ],
+      "thumb_dimensions": [
+        320,
+        180
+      ]
+    },
+    {
+      "file": "36b.jpg",
+      "source_bytes": 1292637,
+      "webp_bytes": 324696,
+      "thumb_bytes": 13380,
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "webp_dimensions": [
+        1600,
+        900
+      ],
+      "thumb_dimensions": [
+        320,
+        180
+      ]
+    },
+    {
+      "file": "37a.jpg",
+      "source_bytes": 1468141,
+      "webp_bytes": 447290,
+      "thumb_bytes": 17952,
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "webp_dimensions": [
+        1600,
+        900
+      ],
+      "thumb_dimensions": [
+        320,
+        180
+      ]
+    },
+    {
+      "file": "38.jpg",
+      "source_bytes": 1690490,
+      "webp_bytes": 675256,
+      "thumb_bytes": 26418,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "39.jpg",
+      "source_bytes": 1496854,
+      "webp_bytes": 491848,
+      "thumb_bytes": 19994,
+      "source_dimensions": [
+        1024,
+        1536
+      ],
+      "webp_dimensions": [
+        1024,
+        1536
+      ],
+      "thumb_dimensions": [
+        213,
+        320
+      ]
+    },
+    {
+      "file": "40a.jpg",
+      "source_bytes": 1366183,
+      "webp_bytes": 417914,
+      "thumb_bytes": 17914,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "41.jpg",
+      "source_bytes": 1512352,
+      "webp_bytes": 526468,
+      "thumb_bytes": 24566,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "42b.jpg",
+      "source_bytes": 1509094,
+      "webp_bytes": 520128,
+      "thumb_bytes": 21194,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "42v.jpg",
+      "source_bytes": 1385548,
+      "webp_bytes": 401654,
+      "thumb_bytes": 14358,
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "webp_dimensions": [
+        1600,
+        900
+      ],
+      "thumb_dimensions": [
+        320,
+        180
+      ]
+    },
+    {
+      "file": "43.jpg",
+      "source_bytes": 1276212,
+      "webp_bytes": 335162,
+      "thumb_bytes": 15722,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "44.jpg",
+      "source_bytes": 1472414,
+      "webp_bytes": 482950,
+      "thumb_bytes": 21260,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "45.jpg",
+      "source_bytes": 1486979,
+      "webp_bytes": 467274,
+      "thumb_bytes": 19570,
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "webp_dimensions": [
+        1600,
+        900
+      ],
+      "thumb_dimensions": [
+        320,
+        180
+      ]
+    },
+    {
+      "file": "46.jpg",
+      "source_bytes": 1337092,
+      "webp_bytes": 359278,
+      "thumb_bytes": 17254,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "47.jpg",
+      "source_bytes": 1687801,
+      "webp_bytes": 690250,
+      "thumb_bytes": 26234,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "48.jpg",
+      "source_bytes": 1617779,
+      "webp_bytes": 610246,
+      "thumb_bytes": 24020,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "51.jpg",
+      "source_bytes": 1295484,
+      "webp_bytes": 363666,
+      "thumb_bytes": 15050,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "53.jpg",
+      "source_bytes": 1324121,
+      "webp_bytes": 360904,
+      "thumb_bytes": 15658,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "55.jpg",
+      "source_bytes": 1382007,
+      "webp_bytes": 377296,
+      "thumb_bytes": 16462,
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "webp_dimensions": [
+        1600,
+        900
+      ],
+      "thumb_dimensions": [
+        320,
+        180
+      ]
+    },
+    {
+      "file": "56.jpg",
+      "source_bytes": 1363791,
+      "webp_bytes": 391410,
+      "thumb_bytes": 22100,
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_dimensions": [
+        1448,
+        1086
+      ],
+      "thumb_dimensions": [
+        320,
+        240
+      ]
+    },
+    {
+      "file": "57.jpg",
+      "source_bytes": 1154388,
+      "webp_bytes": 269742,
+      "thumb_bytes": 12838,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "58.jpg",
+      "source_bytes": 1163533,
+      "webp_bytes": 274540,
+      "thumb_bytes": 13042,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "59.jpg",
+      "source_bytes": 1182133,
+      "webp_bytes": 284522,
+      "thumb_bytes": 12380,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "60.jpg",
+      "source_bytes": 1156024,
+      "webp_bytes": 270952,
+      "thumb_bytes": 12068,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "61.jpg",
+      "source_bytes": 1166858,
+      "webp_bytes": 276784,
+      "thumb_bytes": 12896,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "62.jpg",
+      "source_bytes": 1164163,
+      "webp_bytes": 275296,
+      "thumb_bytes": 13192,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "63.jpg",
+      "source_bytes": 1162089,
+      "webp_bytes": 269440,
+      "thumb_bytes": 13464,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "64.jpg",
+      "source_bytes": 1143906,
+      "webp_bytes": 268792,
+      "thumb_bytes": 11968,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "65.jpg",
+      "source_bytes": 1646286,
+      "webp_bytes": 566388,
+      "thumb_bytes": 21446,
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "webp_dimensions": [
+        1600,
+        900
+      ],
+      "thumb_dimensions": [
+        320,
+        180
+      ]
+    },
+    {
+      "file": "66.jpg",
+      "source_bytes": 1376844,
+      "webp_bytes": 402058,
+      "thumb_bytes": 19328,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "67.jpg",
+      "source_bytes": 1342033,
+      "webp_bytes": 377020,
+      "thumb_bytes": 19306,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "68.jpg",
+      "source_bytes": 1417152,
+      "webp_bytes": 437558,
+      "thumb_bytes": 20956,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "69.jpg",
+      "source_bytes": 1458858,
+      "webp_bytes": 482962,
+      "thumb_bytes": 19752,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "70.jpg",
+      "source_bytes": 1412204,
+      "webp_bytes": 435130,
+      "thumb_bytes": 20196,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "71.jpg",
+      "source_bytes": 1296613,
+      "webp_bytes": 340592,
+      "thumb_bytes": 16756,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "72.jpg",
+      "source_bytes": 1643826,
+      "webp_bytes": 626394,
+      "thumb_bytes": 25334,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "73.jpg",
+      "source_bytes": 1363968,
+      "webp_bytes": 410114,
+      "thumb_bytes": 18690,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "74.jpg",
+      "source_bytes": 1352557,
+      "webp_bytes": 382142,
+      "thumb_bytes": 19962,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "75.jpg",
+      "source_bytes": 1117916,
+      "webp_bytes": 246540,
+      "thumb_bytes": 14850,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "76.jpg",
+      "source_bytes": 1368403,
+      "webp_bytes": 357176,
+      "thumb_bytes": 16790,
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "webp_dimensions": [
+        1600,
+        900
+      ],
+      "thumb_dimensions": [
+        320,
+        180
+      ]
+    },
+    {
+      "file": "77.jpg",
+      "source_bytes": 1663000,
+      "webp_bytes": 620430,
+      "thumb_bytes": 27620,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    }
+  ]
+}
