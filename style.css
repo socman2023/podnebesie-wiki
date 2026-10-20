@@ -2102,6 +2102,7 @@ p, li { text-wrap: pretty; }
   border-radius: var(--radius-md);
 }
 .place-gallery-open span { font-weight: 600; font-size: var(--text-sm); }
+.academy-album-button { margin-top: var(--space-5); max-width: 520px; }
 .place-gallery-open:hover,
 .place-gallery-open:focus-visible { border-color: var(--color-gold); }
 .gallery-overlay {
