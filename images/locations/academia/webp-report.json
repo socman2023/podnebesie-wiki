@@ -1,0 +1,153 @@
+{
+  "original_count": 81,
+  "converted_count": 8,
+  "original_total_bytes": 111931026,
+  "converted_total_bytes": 3392914,
+  "thumbnails_total_bytes": 146784,
+  "images": [
+    {
+      "file": "01.jpg",
+      "source_bytes": 1524542,
+      "webp_bytes": 472042,
+      "thumb_bytes": 18930,
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "webp_dimensions": [
+        1600,
+        900
+      ],
+      "thumb_dimensions": [
+        320,
+        180
+      ]
+    },
+    {
+      "file": "02.jpg",
+      "source_bytes": 1576166,
+      "webp_bytes": 569012,
+      "thumb_bytes": 22106,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "03a.jpg",
+      "source_bytes": 1386869,
+      "webp_bytes": 422492,
+      "thumb_bytes": 15908,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "03b.jpg",
+      "source_bytes": 1424452,
+      "webp_bytes": 466508,
+      "thumb_bytes": 17680,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "04.jpg",
+      "source_bytes": 1583975,
+      "webp_bytes": 543668,
+      "thumb_bytes": 29188,
+      "source_dimensions": [
+        1449,
+        1086
+      ],
+      "webp_dimensions": [
+        1449,
+        1086
+      ],
+      "thumb_dimensions": [
+        320,
+        240
+      ]
+    },
+    {
+      "file": "05.jpg",
+      "source_bytes": 1222726,
+      "webp_bytes": 317384,
+      "thumb_bytes": 15150,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "06.jpg",
+      "source_bytes": 1140166,
+      "webp_bytes": 260916,
+      "thumb_bytes": 11318,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "07.jpg",
+      "source_bytes": 1276070,
+      "webp_bytes": 340892,
+      "thumb_bytes": 16504,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    }
+  ]
+}
