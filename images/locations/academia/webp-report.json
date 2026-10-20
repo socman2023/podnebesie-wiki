@@ -1,9 +1,9 @@
 {
   "original_count": 81,
-  "converted_count": 8,
+  "converted_count": 16,
   "original_total_bytes": 111931026,
-  "converted_total_bytes": 3392914,
-  "thumbnails_total_bytes": 146784,
+  "converted_total_bytes": 5862194,
+  "thumbnails_total_bytes": 266158,
   "images": [
     {
       "file": "01.jpg",
@@ -147,6 +147,150 @@
       "thumb_dimensions": [
         320,
         213
+      ]
+    },
+    {
+      "file": "08.jpg",
+      "source_bytes": 1282934,
+      "webp_bytes": 334184,
+      "thumb_bytes": 14990,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "09.jpg",
+      "source_bytes": 1352644,
+      "webp_bytes": 358038,
+      "thumb_bytes": 14930,
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "webp_dimensions": [
+        1600,
+        900
+      ],
+      "thumb_dimensions": [
+        320,
+        180
+      ]
+    },
+    {
+      "file": "10.jpg",
+      "source_bytes": 1149457,
+      "webp_bytes": 257442,
+      "thumb_bytes": 13202,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "11.jpg",
+      "source_bytes": 1229055,
+      "webp_bytes": 305704,
+      "thumb_bytes": 15182,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "12a.jpg",
+      "source_bytes": 1311359,
+      "webp_bytes": 358100,
+      "thumb_bytes": 17102,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "12b.jpg",
+      "source_bytes": 1186427,
+      "webp_bytes": 287456,
+      "thumb_bytes": 14958,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "13.jpg",
+      "source_bytes": 1149763,
+      "webp_bytes": 259692,
+      "thumb_bytes": 12970,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "webp_dimensions": [
+        1536,
+        1024
+      ],
+      "thumb_dimensions": [
+        320,
+        213
+      ]
+    },
+    {
+      "file": "14.jpg",
+      "source_bytes": 1232716,
+      "webp_bytes": 308664,
+      "thumb_bytes": 16040,
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_dimensions": [
+        1448,
+        1086
+      ],
+      "thumb_dimensions": [
+        320,
+        240
       ]
     }
   ]
