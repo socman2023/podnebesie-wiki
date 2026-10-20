@@ -11,6 +11,14 @@ try {
         colorScheme: scheme
       });
       const key = `${width}-${scheme}`;
+      // A deterministic map document exposes the iframe size at startup.
+      // The embedded Leaflet map must never initialize in a hidden (0px) tab.
+      await page.route('https://socman2023.github.io/podnebesie-map/', route =>
+        route.fulfill({
+          status: 200, contentType: 'text/html',
+          body: '<!doctype html><html><body><div id="initial-size"></div><script>document.getElementById("initial-size").textContent=window.innerWidth+"x"+window.innerHeight;</script></body></html>'
+        })
+      );
       page.on('pageerror', error => issues.push(`${key}: JS ${error.message}`));
       page.on('response', response => {
         if (response.status() >= 400) {
@@ -45,6 +53,17 @@ try {
         return errors;
       });
       issues.push(...characterErrors.map(error => `${key}: ${error}`));
+      const mapFrame = page.locator('#map-iframe');
+      if (await mapFrame.getAttribute('src') !== null) {
+        issues.push(`${key}: map iframe loaded before its tab was visible`);
+      }
+      await page.locator('[data-tab="map"]').click();
+      await page.waitForFunction(() => document.getElementById('map-iframe')?.getAttribute('src')?.includes('/podnebesie-map/'));
+      if (!(await mapFrame.isVisible())) issues.push(`${key}: map iframe hidden after switching tabs`);
+      const viewport = (await page.frameLocator('#map-iframe').locator('#initial-size').innerText()).split('x').map(Number);
+      if (viewport.length !== 2 || viewport.some(v => !Number.isFinite(v) || v < 200)) {
+        issues.push(`${key}: invalid iframe viewport on map load: ${viewport.join('x')}`);
+      }
       await page.locator('[data-tab="academy"]').click();
       const album = page.locator('#academy-gallery-open');
       if (await album.count() !== 1) issues.push(`${key}: missing Academy album button`);

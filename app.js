@@ -73,6 +73,20 @@
     all('.tab-section').forEach(s => {
       s.classList.toggle('active', s.id === `section-${tab}`);
     });
+
+    // Leaflet calculates its fit zoom from the iframe viewport. Do not load
+    // the embedded map while its tab is display:none (zero-size viewport).
+    if (tab === 'map') {
+      const frame = $('map-iframe');
+      if (frame && frame.dataset.src) {
+        requestAnimationFrame(() => {
+          if (activeTab !== 'map' || !frame.dataset.src) return;
+          if (frame.getBoundingClientRect().width === 0) return;
+          frame.src = frame.dataset.src;
+          delete frame.dataset.src;
+        });
+      }
+    }
   }
 
   // ── SEARCH TOGGLE ──────────────────────────────────────────
