@@ -1091,6 +1091,33 @@ p, li { text-wrap: pretty; }
 }
 
 /* Schedule table */
+.schedule-scroll-controls {
+  margin-bottom: var(--space-2);
+}
+.schedule-scroll-controls[hidden] { display: none; }
+.schedule-scroll-hint {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  padding-bottom: 3px;
+}
+.schedule-scroll-top {
+  width: 100%;
+  height: 17px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: auto;
+  scrollbar-color: var(--color-gold) var(--color-surface-offset);
+}
+.schedule-scroll-top > div { height: 1px; }
+.schedule-scroll-top::-webkit-scrollbar { height: 12px; }
+.schedule-scroll-top::-webkit-scrollbar-track {
+  background: var(--color-surface-offset);
+  border-radius: var(--radius-full);
+}
+.schedule-scroll-top::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: var(--radius-full);
+}
 .schedule-wrap {
   overflow-x: auto;
   border-radius: var(--radius-lg);
@@ -1137,6 +1164,27 @@ p, li { text-wrap: pretty; }
   background: var(--color-surface-offset);
 }
 
+/* Keep the time column visible when swiping across the week. */
+.schedule-table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.schedule-table th:first-child,
+.schedule-table td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  min-width: 94px;
+  background: var(--color-bg);
+  box-shadow: 2px 0 0 var(--color-border);
+}
+.schedule-table thead th:first-child {
+  z-index: 3;
+  background: var(--color-surface-offset);
+}
+.schedule-table tbody tr:nth-child(even) td:first-child {
+  background: var(--color-surface-offset);
+}
 .schedule-time {
   white-space: nowrap;
   color: var(--color-gold);
