@@ -621,6 +621,8 @@
     // ── Hero block ──────────────────────────────────────────
     const heroBlock = $('academy-hero-block');
     if (heroBlock) {
+      const academyPlace = D.places.find(place => place.id === 'akademiya');
+      const academyPhotos = academyPlace && Array.isArray(academyPlace.gallery) ? academyPlace.gallery : [];
       const classChips = (academy.classes || []).map(cls => {
         const teacher = D.characters.find(c => c.id === cls.teacher);
         const teacherName = teacher ? teacher.name : cls.teacher;
@@ -636,7 +638,14 @@
         <div class="academy-hero-title">Академия магии Светозара</div>
         <div class="academy-hero-desc">${esc(academy.description)}</div>
         <div class="academy-classes-summary">${classChips}</div>
+        ${academyPhotos.length ? `
+          <button type="button" class="place-gallery-open academy-album-button" id="academy-gallery-open">
+            <img src="${esc(academyPhotos[0].src)}" alt="" loading="lazy" decoding="async">
+            <span>Фотоальбом Академии · ${academyPhotos.length} фотографий →</span>
+          </button>
+        ` : ''}
       `;
+      heroBlock.querySelector('#academy-gallery-open')?.addEventListener('click', () => openGallery(academyPhotos));
     }
 
     // ── Classes grid (summary cards) ───────────────────────
