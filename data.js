@@ -323,8 +323,8 @@ const WIKI_DATA = {
     },
     {
       id: "griyvard", portrait: "portraits/LIUTSIY.jpg",
-      name: "Инквизитор Грейвард",
-      fullName: "Инквизитор Люций Грейвард",
+      name: "Люций Грейвард",
+      fullName: "Люций Грейвард",
       role: "Учитель · Защита от тёмных сил",
       group: "teacher",
       nation: null,
