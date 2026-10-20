@@ -1109,7 +1109,7 @@
     return `
       <div class="modal-type-badge">${esc(groupLabel[char.group] || 'Персонаж')}</div>
       <h2 class="modal-title" id="modalTitle">${esc(char.name)}</h2>
-      <div class="modal-subtitle">${esc(char.fullName)}</div>
+      <div class="modal-subtitle">${esc(char.role)}</div>
       ${char.portrait ? `<img class="modal-portrait" src="${char.portrait}" alt="${esc(char.name)}" loading="lazy">` : ''}
       <div class="modal-section-label">О персонаже</div>
       <p class="modal-text">${esc(char.description)}</p>
