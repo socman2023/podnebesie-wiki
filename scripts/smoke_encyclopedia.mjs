@@ -111,7 +111,7 @@ try {
       if (!(await cityButton.isVisible())) issues.push(`${key}: Zlatograd gallery button missing`);
       await cityButton.click();
       if (!(await overlay.isVisible())) issues.push(`${key}: Zlatograd gallery did not open`);
-      if ((await counter.innerText()) !== '1 / 25') issues.push(`${key}: Zlatograd photo count incorrect`);
+      if ((await counter.innerText()) !== '1 / 26') issues.push(`${key}: Zlatograd photo count incorrect`);
       if ((await caption.innerText()) !== 'Вид на Златоград с противоположного берега реки') {
         issues.push(`${key}: incorrect first Zlatograd caption`);
       }
@@ -120,16 +120,16 @@ try {
         return img?.complete && img.naturalWidth > 0 && img.src.endsWith('/zlatograd/01.webp');
       });
       await page.locator('#galleryPrevious').click();
-      if ((await counter.innerText()) !== '25 / 25') issues.push(`${key}: Zlatograd wrap-around failed`);
-      if ((await caption.innerText()) !== 'Задний двор княжеского дворца') {
+      if ((await counter.innerText()) !== '26 / 26') issues.push(`${key}: Zlatograd wrap-around failed`);
+      if ((await caption.innerText()) !== 'Карта Златограда') {
         issues.push(`${key}: incorrect last Zlatograd caption`);
       }
       await page.waitForFunction(() => {
         const img = document.getElementById('galleryPhoto');
-        return img?.complete && img.naturalWidth > 0 && img.src.endsWith('/zlatograd/25.webp');
+        return img?.complete && img.naturalWidth > 0 && img.src.endsWith('/zlatograd/zlatograd_map.jpg');
       });
       await page.keyboard.press('ArrowRight');
-      if ((await counter.innerText()) !== '1 / 25') issues.push(`${key}: Zlatograd keyboard navigation failed`);
+      if ((await counter.innerText()) !== '1 / 26') issues.push(`${key}: Zlatograd keyboard navigation failed`);
       await page.keyboard.press('Escape');
       if (await overlay.isVisible()) issues.push(`${key}: Zlatograd gallery did not close`);
       await page.locator('#modalClose').click();
