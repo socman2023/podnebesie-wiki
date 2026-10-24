@@ -1744,7 +1744,7 @@ const WIKI_DATA = {
         { src: "images/locations/zlatograd/22.webp", thumb: "images/locations/zlatograd/thumbs/22.webp", caption: "Княжеская конюшня" },
         { src: "images/locations/zlatograd/23.webp", thumb: "images/locations/zlatograd/thumbs/23.webp", caption: "Княжеский садик за дворцом" },
         { src: "images/locations/zlatograd/24.webp", thumb: "images/locations/zlatograd/thumbs/24.webp", caption: "Большой зал приёмов в княжеском дворце" },
-        { src: "images/locations/zlatograd/25.webp", thumb: "images/locations/zlatograd/thumbs/25.webp", caption: "Задний двор княжеского дворца" ,
+        { src: "images/locations/zlatograd/25.webp", thumb: "images/locations/zlatograd/thumbs/25.webp", caption: "Задний двор княжеского дворца" },
         { src: "images/locations/zlatograd/zlatograd_map.jpg", thumb: "images/locations/zlatograd/zlatograd_map.jpg", caption: "Карта Златограда" }
       ]
     },
