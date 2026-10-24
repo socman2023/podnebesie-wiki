@@ -1871,7 +1871,19 @@ const WIKI_DATA = {
       nation: "Рось",
       tags: ["россы","Граничный кряж","Море Новых Надежд","Олешка","Твердята"],
       description: "Город Роси у подножия Граничного кряжа, на берегу Моря Новых Надежд. Важные занятия жителей — рыболовство, ремесло и торговля через кряж со Славонией.",
-      details: "Население — около пяти тысяч жителей. Добромир передал Лучинец в вотчинное управление княжичу Олешке (Доброславу). После событий лета 2026 года посадником стал Твердята. Ведутся работы по расширению и устройству городской пристани."
+      details: "Население — около пяти тысяч жителей. Добромир передал Лучинец в вотчинное управление княжичу Олешке (Доброславу). После событий лета 2026 года посадником стал Твердята. Ведутся работы по расширению и устройству городской пристани.",
+      gallery: [
+        { src: "images/locations/luchinets/01.webp", thumb: "images/locations/luchinets/thumbs/01.webp", caption: "Вид на Лучинец с прибрежной дороги" },
+        { src: "images/locations/luchinets/02.webp", thumb: "images/locations/luchinets/thumbs/02.webp", caption: "Большая пристань с торговыми и рыбацкими судами" },
+        { src: "images/locations/luchinets/03.webp", thumb: "images/locations/luchinets/thumbs/03.webp", caption: "Вид на город с моря" },
+        { src: "images/locations/luchinets/04.webp", thumb: "images/locations/luchinets/thumbs/04.webp", caption: "Рыбный торг у пристани" },
+        { src: "images/locations/luchinets/05.webp", thumb: "images/locations/luchinets/thumbs/05.webp", caption: "Главная улица от ворот к пристани" },
+        { src: "images/locations/luchinets/06.webp", thumb: "images/locations/luchinets/thumbs/06.webp", caption: "Вечевая площадь" },
+        { src: "images/locations/luchinets/07.webp", thumb: "images/locations/luchinets/thumbs/07.webp", caption: "Княжеский управный двор" },
+        { src: "images/locations/luchinets/08.webp", thumb: "images/locations/luchinets/thumbs/08.webp", caption: "Купеческий складской двор у порта" },
+        { src: "images/locations/luchinets/09.webp", thumb: "images/locations/luchinets/thumbs/09.webp", caption: "Жилой квартал возле моря" },
+        { src: "images/locations/luchinets/10.webp", thumb: "images/locations/luchinets/thumbs/10.webp", caption: "Морской берег за городом с видом на город и горный кряж" }
+      ]
     },
     {
       id: "savona",
