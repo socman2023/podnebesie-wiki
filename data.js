@@ -1707,7 +1707,8 @@ const WIKI_DATA = {
         { src: "images/locations/academia/74.webp", thumb: "images/locations/academia/thumbs/74.webp", caption: "Класс магической астрономии" },
         { src: "images/locations/academia/75.webp", thumb: "images/locations/academia/thumbs/75.webp", caption: "Каморка Есени" },
         { src: "images/locations/academia/76.webp", thumb: "images/locations/academia/thumbs/76.webp", caption: "Закат над Академией" },
-        { src: "images/locations/academia/77.webp", thumb: "images/locations/academia/thumbs/77.webp", caption: "Пасека" }
+        { src: "images/locations/academia/77.webp", thumb: "images/locations/academia/thumbs/77.webp", caption: "Пасека" },
+        { src: "images/locations/academia/academy_map.webp", thumb: "images/locations/academia/thumbs/academy_map.webp", caption: "Карта Академии" }
       ]
     },
     {
@@ -1717,7 +1718,34 @@ const WIKI_DATA = {
       nation: "Рось",
       tags: ["россы", "Рось", "столица", "Олешка"],
       description: "Родной город Олешки, столица земли Росской. Правит великий князь Добромир. Деревянные дома (россы любят дерево). Дворец на берегу Красной реки.",
-      details: "Основан Первославом. Богатый торговый город. Здесь Олешка получил первые уроки жизни от дядьки Твердяты и воеводы Властояра."
+      details: "Основан Первославом. Богатый торговый город. Здесь Олешка получил первые уроки жизни от дядьки Твердяты и воеводы Властояра.",
+      gallery: [
+        { src: "images/locations/zlatograd/01.webp", thumb: "images/locations/zlatograd/thumbs/01.webp", caption: "Вид на Златоград с противоположного берега реки" },
+        { src: "images/locations/zlatograd/02.webp", thumb: "images/locations/zlatograd/thumbs/02.webp", caption: "Главные речные пристани" },
+        { src: "images/locations/zlatograd/03.webp", thumb: "images/locations/zlatograd/thumbs/03.webp", caption: "Переправа через большую реку" },
+        { src: "images/locations/zlatograd/04.webp", thumb: "images/locations/zlatograd/thumbs/04.webp", caption: "Вид на столицу с воды" },
+        { src: "images/locations/zlatograd/05.webp", thumb: "images/locations/zlatograd/thumbs/05.webp", caption: "Восточные городские ворота" },
+        { src: "images/locations/zlatograd/06.webp", thumb: "images/locations/zlatograd/thumbs/06.webp", caption: "Главная улица от ворот к центру" },
+        { src: "images/locations/zlatograd/07.webp", thumb: "images/locations/zlatograd/thumbs/07.webp", caption: "Главная торговая площадь" },
+        { src: "images/locations/zlatograd/08.webp", thumb: "images/locations/zlatograd/thumbs/08.webp", caption: "Ряды дорогих товаров" },
+        { src: "images/locations/zlatograd/09.webp", thumb: "images/locations/zlatograd/thumbs/09.webp", caption: "Хлебный и зерновой торг" },
+        { src: "images/locations/zlatograd/10.webp", thumb: "images/locations/zlatograd/thumbs/10.webp", caption: "Кузнечная слобода" },
+        { src: "images/locations/zlatograd/11.webp", thumb: "images/locations/zlatograd/thumbs/11.webp", caption: "Гончарный ряд" },
+        { src: "images/locations/zlatograd/12.webp", thumb: "images/locations/zlatograd/thumbs/12.webp", caption: "Улица плотников и резчиков по дереву" },
+        { src: "images/locations/zlatograd/13.webp", thumb: "images/locations/zlatograd/thumbs/13.webp", caption: "Хозяйственный двор княжеского дворца" },
+        { src: "images/locations/zlatograd/14.webp", thumb: "images/locations/zlatograd/thumbs/14.webp", caption: "Площадь у западных городских ворот" },
+        { src: "images/locations/zlatograd/15.webp", thumb: "images/locations/zlatograd/thumbs/15.webp", caption: "Вид с городской стены на подол и Красную реку" },
+        { src: "images/locations/zlatograd/16.webp", thumb: "images/locations/zlatograd/thumbs/16.webp", caption: "Боевой ход и башня над рекой" },
+        { src: "images/locations/zlatograd/17.webp", thumb: "images/locations/zlatograd/thumbs/17.webp", caption: "Жилой посад простых горожан" },
+        { src: "images/locations/zlatograd/18.webp", thumb: "images/locations/zlatograd/thumbs/18.webp", caption: "Богатый двор знатного рода" },
+        { src: "images/locations/zlatograd/19.webp", thumb: "images/locations/zlatograd/thumbs/19.webp", caption: "Святилище в городе" },
+        { src: "images/locations/zlatograd/20.webp", thumb: "images/locations/zlatograd/thumbs/20.webp", caption: "Вид на вечерний Златоград с реки" },
+        { src: "images/locations/zlatograd/21.webp", thumb: "images/locations/zlatograd/thumbs/21.webp", caption: "Княжеский дворец со стороны вечевой площади" },
+        { src: "images/locations/zlatograd/22.webp", thumb: "images/locations/zlatograd/thumbs/22.webp", caption: "Княжеская конюшня" },
+        { src: "images/locations/zlatograd/23.webp", thumb: "images/locations/zlatograd/thumbs/23.webp", caption: "Княжеский садик за дворцом" },
+        { src: "images/locations/zlatograd/24.webp", thumb: "images/locations/zlatograd/thumbs/24.webp", caption: "Большой зал приёмов в княжеском дворце" },
+        { src: "images/locations/zlatograd/25.webp", thumb: "images/locations/zlatograd/thumbs/25.webp", caption: "Задний двор княжеского дворца" }
+      ]
     },
     {
       id: "uzava",
@@ -1843,7 +1871,19 @@ const WIKI_DATA = {
       nation: "Рось",
       tags: ["россы","Граничный кряж","Море Новых Надежд","Олешка","Твердята"],
       description: "Город Роси у подножия Граничного кряжа, на берегу Моря Новых Надежд. Важные занятия жителей — рыболовство, ремесло и торговля через кряж со Славонией.",
-      details: "Население — около пяти тысяч жителей. Добромир передал Лучинец в вотчинное управление княжичу Олешке (Доброславу). После событий лета 2026 года посадником стал Твердята. Ведутся работы по расширению и устройству городской пристани."
+      details: "Население — около пяти тысяч жителей. Добромир передал Лучинец в вотчинное управление княжичу Олешке (Доброславу). После событий лета 2026 года посадником стал Твердята. Ведутся работы по расширению и устройству городской пристани.",
+      gallery: [
+        { src: "images/locations/luchinets/01.webp", thumb: "images/locations/luchinets/thumbs/01.webp", caption: "Вид на Лучинец с прибрежной дороги" },
+        { src: "images/locations/luchinets/02.webp", thumb: "images/locations/luchinets/thumbs/02.webp", caption: "Большая пристань с торговыми и рыбацкими судами" },
+        { src: "images/locations/luchinets/03.webp", thumb: "images/locations/luchinets/thumbs/03.webp", caption: "Вид на город с моря" },
+        { src: "images/locations/luchinets/04.webp", thumb: "images/locations/luchinets/thumbs/04.webp", caption: "Рыбный торг у пристани" },
+        { src: "images/locations/luchinets/05.webp", thumb: "images/locations/luchinets/thumbs/05.webp", caption: "Главная улица от ворот к пристани" },
+        { src: "images/locations/luchinets/06.webp", thumb: "images/locations/luchinets/thumbs/06.webp", caption: "Вечевая площадь" },
+        { src: "images/locations/luchinets/07.webp", thumb: "images/locations/luchinets/thumbs/07.webp", caption: "Княжеский управный двор" },
+        { src: "images/locations/luchinets/08.webp", thumb: "images/locations/luchinets/thumbs/08.webp", caption: "Купеческий складской двор у порта" },
+        { src: "images/locations/luchinets/09.webp", thumb: "images/locations/luchinets/thumbs/09.webp", caption: "Жилой квартал возле моря" },
+        { src: "images/locations/luchinets/10.webp", thumb: "images/locations/luchinets/thumbs/10.webp", caption: "Морской берег за городом с видом на город и горный кряж" }
+      ]
     },
     {
       id: "savona",

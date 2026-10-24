@@ -72,7 +72,7 @@ try {
       if (!(await overlay.isVisible())) issues.push(`${key}: gallery not visible`);
       const caption = page.locator('#galleryCaption');
       const counter = page.locator('#galleryCount');
-      if ((await counter.innerText()) !== '1 / 81') issues.push(`${key}: incorrect photo count`);
+      if ((await counter.innerText()) !== '1 / 82') issues.push(`${key}: incorrect photo count`);
       await page.waitForFunction(() => {
         const img = document.getElementById('galleryPhoto');
         return img?.complete && img.naturalWidth > 0;
@@ -80,12 +80,16 @@ try {
       if ((await caption.innerText()) !== 'Академия') issues.push(`${key}: wrong first caption`);
       await page.locator('#galleryNext').click();
       await page.waitForFunction(() => document.getElementById('galleryPhoto')?.naturalWidth > 0);
-      if ((await counter.innerText()) !== '2 / 81') issues.push(`${key}: next button failed`);
+      if ((await counter.innerText()) !== '2 / 82') issues.push(`${key}: next button failed`);
       await page.keyboard.press('ArrowLeft');
-      if ((await counter.innerText()) !== '1 / 81') issues.push(`${key}: keyboard navigation failed`);
+      if ((await counter.innerText()) !== '1 / 82') issues.push(`${key}: keyboard navigation failed`);
       await page.locator('#galleryPrevious').click();
-      if ((await counter.innerText()) !== '81 / 81') issues.push(`${key}: wrap-around failed`);
+      if ((await counter.innerText()) !== '82 / 82') issues.push(`${key}: wrap-around failed`);
       await page.waitForFunction(() => document.getElementById('galleryPhoto')?.complete && document.getElementById('galleryPhoto')?.naturalWidth > 0);
+      if ((await caption.innerText()) !== 'Карта Академии') issues.push(`${key}: academy map is not the last photo`);
+      if (!(await page.locator('#galleryPhoto').getAttribute('src')).endsWith('/academia/academy_map.webp')) {
+        issues.push(`${key}: wrong Academy map image path`);
+      }
       themeColors[scheme] = await page.locator('.gallery-sheet').evaluate(el => getComputedStyle(el).backgroundColor);
       await page.keyboard.press('Escape');
       if (await overlay.isVisible()) issues.push(`${key}: Escape did not close gallery`);
@@ -97,6 +101,88 @@ try {
         const topVisible = await page.locator('#academy-schedule-scroll-controls').isVisible();
         if (!scrolls || !topVisible) issues.push(`${key}: mobile schedule scroll controls missing`);
       }
+      // Zlatograd uses the same location-gallery viewer as the Academy.
+      // Check it across desktop/mobile, dark/light themes and keyboard controls.
+      await page.locator('[data-tab="places"]').click();
+      const city = page.locator('#grid-places .card').filter({ has: page.locator('.card-name', { hasText: /^Златоград$/ }) });
+      if (await city.count() !== 1) issues.push(`${key}: Zlatograd location card not unique`);
+      await city.click();
+      const cityButton = page.locator('#modalBody [data-gallery-open]');
+      if (!(await cityButton.isVisible())) issues.push(`${key}: Zlatograd gallery button missing`);
+      await cityButton.click();
+      if (!(await overlay.isVisible())) issues.push(`${key}: Zlatograd gallery did not open`);
+      if ((await counter.innerText()) !== '1 / 25') issues.push(`${key}: Zlatograd photo count incorrect`);
+      if ((await caption.innerText()) !== 'Вид на Златоград с противоположного берега реки') {
+        issues.push(`${key}: incorrect first Zlatograd caption`);
+      }
+      await page.waitForFunction(() => {
+        const img = document.getElementById('galleryPhoto');
+        return img?.complete && img.naturalWidth > 0 && img.src.endsWith('/zlatograd/01.webp');
+      });
+      await page.locator('#galleryPrevious').click();
+      if ((await counter.innerText()) !== '25 / 25') issues.push(`${key}: Zlatograd wrap-around failed`);
+      if ((await caption.innerText()) !== 'Задний двор княжеского дворца') {
+        issues.push(`${key}: incorrect last Zlatograd caption`);
+      }
+      await page.waitForFunction(() => {
+        const img = document.getElementById('galleryPhoto');
+        return img?.complete && img.naturalWidth > 0 && img.src.endsWith('/zlatograd/25.webp');
+      });
+      await page.keyboard.press('ArrowRight');
+      if ((await counter.innerText()) !== '1 / 25') issues.push(`${key}: Zlatograd keyboard navigation failed`);
+      await page.keyboard.press('Escape');
+      if (await overlay.isVisible()) issues.push(`${key}: Zlatograd gallery did not close`);
+      await page.locator('#modalClose').click();
+
+      // Luchinets gallery: all photos/captions, thumbnail paging, wrap-around
+      // and keyboard closing at desktop/mobile widths in both color schemes.
+      const luchinetsCaptions = [
+        'Вид на Лучинец с прибрежной дороги',
+        'Большая пристань с торговыми и рыбацкими судами',
+        'Вид на город с моря',
+        'Рыбный торг у пристани',
+        'Главная улица от ворот к пристани',
+        'Вечевая площадь',
+        'Княжеский управный двор',
+        'Купеческий складской двор у порта',
+        'Жилой квартал возле моря',
+        'Морской берег за городом с видом на город и горный кряж'
+      ];
+      const luchinetsCard = page.locator('#grid-places .card').filter({
+        has: page.locator('.card-name', { hasText: /^Лучинец$/ })
+      });
+      if (await luchinetsCard.count() !== 1) issues.push(key + ': Luchinets card not unique');
+      await luchinetsCard.click();
+      const luchinetsButton = page.locator('#modalBody [data-gallery-open]');
+      if (!(await luchinetsButton.isVisible())) issues.push(key + ': Luchinets gallery button missing');
+      await luchinetsButton.click();
+      if (!(await overlay.isVisible())) issues.push(key + ': Luchinets gallery did not open');
+
+      for (let i = 0; i < luchinetsCaptions.length; i++) {
+        const number = String(i + 1).padStart(2, '0');
+        await page.waitForFunction(number => {
+          const img = document.getElementById('galleryPhoto');
+          return img?.src.endsWith('/luchinets/' + number + '.webp') &&
+            img.complete && img.naturalWidth > 0;
+        }, number);
+        if ((await counter.innerText()) !== String(i + 1) + ' / 10') {
+          issues.push(key + ': wrong Luchinets counter at photo ' + (i + 1));
+        }
+        if ((await caption.innerText()) !== luchinetsCaptions[i]) {
+          issues.push(key + ': wrong Luchinets caption at photo ' + (i + 1));
+        }
+        const expectedThumbs = i < 7 ? 7 : 3;
+        if ((await page.locator('#galleryThumbs .gallery-thumb').count()) !== expectedThumbs) {
+          issues.push(key + ': wrong Luchinets thumbnail group at photo ' + (i + 1));
+        }
+        await page.locator('#galleryNext').click();
+      }
+      if ((await counter.innerText()) !== '1 / 10') issues.push(key + ': Luchinets wrap-around failed');
+      await page.keyboard.press('ArrowLeft');
+      if ((await counter.innerText()) !== '10 / 10') issues.push(key + ': Luchinets keyboard navigation failed');
+      await page.keyboard.press('Escape');
+      if (await overlay.isVisible()) issues.push(key + ': Luchinets Escape did not close gallery');
+      await page.locator('#modalClose').click();
       await page.close();
       console.log(`PASS browser checks ${key}`);
     }
