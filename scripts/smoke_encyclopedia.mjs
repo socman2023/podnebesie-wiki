@@ -133,6 +133,56 @@ try {
       await page.keyboard.press('Escape');
       if (await overlay.isVisible()) issues.push(`${key}: Zlatograd gallery did not close`);
       await page.locator('#modalClose').click();
+
+      // Luchinets gallery: all photos/captions, thumbnail paging, wrap-around
+      // and keyboard closing at desktop/mobile widths in both color schemes.
+      const luchinetsCaptions = [
+        'Вид на Лучинец с прибрежной дороги',
+        'Большая пристань с торговыми и рыбацкими судами',
+        'Вид на город с моря',
+        'Рыбный торг у пристани',
+        'Главная улица от ворот к пристани',
+        'Вечевая площадь',
+        'Княжеский управный двор',
+        'Купеческий складской двор у порта',
+        'Жилой квартал возле моря',
+        'Морской берег за городом с видом на город и горный кряж'
+      ];
+      const luchinetsCard = page.locator('#grid-places .card').filter({
+        has: page.locator('.card-name', { hasText: /^Лучинец$/ })
+      });
+      if (await luchinetsCard.count() !== 1) issues.push(key + ': Luchinets card not unique');
+      await luchinetsCard.click();
+      const luchinetsButton = page.locator('#modalBody [data-gallery-open]');
+      if (!(await luchinetsButton.isVisible())) issues.push(key + ': Luchinets gallery button missing');
+      await luchinetsButton.click();
+      if (!(await overlay.isVisible())) issues.push(key + ': Luchinets gallery did not open');
+
+      for (let i = 0; i < luchinetsCaptions.length; i++) {
+        const number = String(i + 1).padStart(2, '0');
+        await page.waitForFunction(number => {
+          const img = document.getElementById('galleryPhoto');
+          return img?.src.endsWith('/luchinets/' + number + '.webp') &&
+            img.complete && img.naturalWidth > 0;
+        }, number);
+        if ((await counter.innerText()) !== String(i + 1) + ' / 10') {
+          issues.push(key + ': wrong Luchinets counter at photo ' + (i + 1));
+        }
+        if ((await caption.innerText()) !== luchinetsCaptions[i]) {
+          issues.push(key + ': wrong Luchinets caption at photo ' + (i + 1));
+        }
+        const expectedThumbs = i < 7 ? 7 : 3;
+        if ((await page.locator('#galleryThumbs .gallery-thumb').count()) !== expectedThumbs) {
+          issues.push(key + ': wrong Luchinets thumbnail group at photo ' + (i + 1));
+        }
+        await page.locator('#galleryNext').click();
+      }
+      if ((await counter.innerText()) !== '1 / 10') issues.push(key + ': Luchinets wrap-around failed');
+      await page.keyboard.press('ArrowLeft');
+      if ((await counter.innerText()) !== '10 / 10') issues.push(key + ': Luchinets keyboard navigation failed');
+      await page.keyboard.press('Escape');
+      if (await overlay.isVisible()) issues.push(key + ': Luchinets Escape did not close gallery');
+      await page.locator('#modalClose').click();
       await page.close();
       console.log(`PASS browser checks ${key}`);
     }
