@@ -126,7 +126,7 @@ try {
       }
       await page.waitForFunction(() => {
         const img = document.getElementById('galleryPhoto');
-        return img?.complete && img.naturalWidth > 0 && img.src.endsWith('/zlatograd/zlatograd_map.jpg');
+        return img?.complete && img.naturalWidth === 1554 && img.naturalHeight === 1012 && img.src.endsWith('/zlatograd/zlatograd_map.jpg');
       });
       await page.keyboard.press('ArrowRight');
       if ((await counter.innerText()) !== '1 / 26') issues.push(`${key}: Zlatograd keyboard navigation failed`);
