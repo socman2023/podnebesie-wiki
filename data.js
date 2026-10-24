@@ -1883,7 +1883,8 @@ const WIKI_DATA = {
         { src: "images/locations/luchinets/07.webp", thumb: "images/locations/luchinets/thumbs/07.webp", caption: "Княжеский управный двор" },
         { src: "images/locations/luchinets/08.webp", thumb: "images/locations/luchinets/thumbs/08.webp", caption: "Купеческий складской двор у порта" },
         { src: "images/locations/luchinets/09.webp", thumb: "images/locations/luchinets/thumbs/09.webp", caption: "Жилой квартал возле моря" },
-        { src: "images/locations/luchinets/10.webp", thumb: "images/locations/luchinets/thumbs/10.webp", caption: "Морской берег за городом с видом на город и горный кряж" }
+        { src: "images/locations/luchinets/10.webp", thumb: "images/locations/luchinets/thumbs/10.webp", caption: "Морской берег за городом с видом на город и горный кряж" },
+        { src: "images/locations/luchinets/luchinets_map.webp", thumb: "images/locations/luchinets/thumbs/luchinets_map.webp", caption: "Карта Лучинца" }
       ]
     },
     {

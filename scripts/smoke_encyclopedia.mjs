@@ -146,7 +146,8 @@ try {
         'Княжеский управный двор',
         'Купеческий складской двор у порта',
         'Жилой квартал возле моря',
-        'Морской берег за городом с видом на город и горный кряж'
+        'Морской берег за городом с видом на город и горный кряж',
+        'Карта Лучинца'
       ];
       const luchinetsCard = page.locator('#grid-places .card').filter({
         has: page.locator('.card-name', { hasText: /^Лучинец$/ })
@@ -159,27 +160,32 @@ try {
       if (!(await overlay.isVisible())) issues.push(key + ': Luchinets gallery did not open');
 
       for (let i = 0; i < luchinetsCaptions.length; i++) {
-        const number = String(i + 1).padStart(2, '0');
+        const number = i === 10 ? 'luchinets_map' : String(i + 1).padStart(2, '0');
         await page.waitForFunction(number => {
           const img = document.getElementById('galleryPhoto');
           return img?.src.endsWith('/luchinets/' + number + '.webp') &&
             img.complete && img.naturalWidth > 0;
         }, number);
-        if ((await counter.innerText()) !== String(i + 1) + ' / 10') {
+        if ((await counter.innerText()) !== String(i + 1) + ' / 11') {
           issues.push(key + ': wrong Luchinets counter at photo ' + (i + 1));
         }
         if ((await caption.innerText()) !== luchinetsCaptions[i]) {
           issues.push(key + ': wrong Luchinets caption at photo ' + (i + 1));
         }
-        const expectedThumbs = i < 7 ? 7 : 3;
+        const expectedThumbs = i < 7 ? 7 : 4;
         if ((await page.locator('#galleryThumbs .gallery-thumb').count()) !== expectedThumbs) {
           issues.push(key + ': wrong Luchinets thumbnail group at photo ' + (i + 1));
         }
         await page.locator('#galleryNext').click();
       }
-      if ((await counter.innerText()) !== '1 / 10') issues.push(key + ': Luchinets wrap-around failed');
+      if ((await counter.innerText()) !== '1 / 11') issues.push(key + ': Luchinets wrap-around failed');
       await page.keyboard.press('ArrowLeft');
-      if ((await counter.innerText()) !== '10 / 10') issues.push(key + ': Luchinets keyboard navigation failed');
+      if ((await counter.innerText()) !== '11 / 11') issues.push(key + ': Luchinets keyboard navigation failed');
+      await page.waitForFunction(() => {
+        const img = document.getElementById('galleryPhoto');
+        return img?.complete && img.naturalWidth === 1448 && img.naturalHeight === 1086;
+      });
+      if ((await caption.innerText()) !== 'Карта Лучинца') issues.push(key + ': Luchinets map is not last photo');
       await page.keyboard.press('Escape');
       if (await overlay.isVisible()) issues.push(key + ': Luchinets Escape did not close gallery');
       await page.locator('#modalClose').click();
