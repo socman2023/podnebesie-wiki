@@ -1707,7 +1707,8 @@ const WIKI_DATA = {
         { src: "images/locations/academia/74.webp", thumb: "images/locations/academia/thumbs/74.webp", caption: "Класс магической астрономии" },
         { src: "images/locations/academia/75.webp", thumb: "images/locations/academia/thumbs/75.webp", caption: "Каморка Есени" },
         { src: "images/locations/academia/76.webp", thumb: "images/locations/academia/thumbs/76.webp", caption: "Закат над Академией" },
-        { src: "images/locations/academia/77.webp", thumb: "images/locations/academia/thumbs/77.webp", caption: "Пасека" }
+        { src: "images/locations/academia/77.webp", thumb: "images/locations/academia/thumbs/77.webp", caption: "Пасека" },
+        { src: "images/locations/academia/academy_map.webp", thumb: "images/locations/academia/thumbs/academy_map.webp", caption: "Карта Академии" }
       ]
     },
     {

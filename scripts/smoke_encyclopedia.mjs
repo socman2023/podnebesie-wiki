@@ -72,7 +72,7 @@ try {
       if (!(await overlay.isVisible())) issues.push(`${key}: gallery not visible`);
       const caption = page.locator('#galleryCaption');
       const counter = page.locator('#galleryCount');
-      if ((await counter.innerText()) !== '1 / 81') issues.push(`${key}: incorrect photo count`);
+      if ((await counter.innerText()) !== '1 / 82') issues.push(`${key}: incorrect photo count`);
       await page.waitForFunction(() => {
         const img = document.getElementById('galleryPhoto');
         return img?.complete && img.naturalWidth > 0;
@@ -80,12 +80,16 @@ try {
       if ((await caption.innerText()) !== 'Академия') issues.push(`${key}: wrong first caption`);
       await page.locator('#galleryNext').click();
       await page.waitForFunction(() => document.getElementById('galleryPhoto')?.naturalWidth > 0);
-      if ((await counter.innerText()) !== '2 / 81') issues.push(`${key}: next button failed`);
+      if ((await counter.innerText()) !== '2 / 82') issues.push(`${key}: next button failed`);
       await page.keyboard.press('ArrowLeft');
-      if ((await counter.innerText()) !== '1 / 81') issues.push(`${key}: keyboard navigation failed`);
+      if ((await counter.innerText()) !== '1 / 82') issues.push(`${key}: keyboard navigation failed`);
       await page.locator('#galleryPrevious').click();
-      if ((await counter.innerText()) !== '81 / 81') issues.push(`${key}: wrap-around failed`);
+      if ((await counter.innerText()) !== '82 / 82') issues.push(`${key}: wrap-around failed`);
       await page.waitForFunction(() => document.getElementById('galleryPhoto')?.complete && document.getElementById('galleryPhoto')?.naturalWidth > 0);
+      if ((await caption.innerText()) !== 'Карта Академии') issues.push(`${key}: academy map is not the last photo`);
+      if (!(await page.locator('#galleryPhoto').getAttribute('src')).endsWith('/academia/academy_map.webp')) {
+        issues.push(`${key}: wrong Academy map image path`);
+      }
       themeColors[scheme] = await page.locator('.gallery-sheet').evaluate(el => getComputedStyle(el).backgroundColor);
       await page.keyboard.press('Escape');
       if (await overlay.isVisible()) issues.push(`${key}: Escape did not close gallery`);
