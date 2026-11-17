@@ -14,7 +14,7 @@ permissions:
 jobs:
   browser-check:
     if: github.ref == 'refs/heads/encyclopedia-update-2026'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 12
     steps:
       - name: Checkout working branch
