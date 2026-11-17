@@ -2105,6 +2105,35 @@ p, li { text-wrap: pretty; }
 .academy-album-button { margin-top: var(--space-5); max-width: 520px; }
 .place-gallery-open:hover,
 .place-gallery-open:focus-visible { border-color: var(--color-gold); }
+
+/* Uncropped map shown inside a location article. */
+.place-map-preview {
+  width: 100%;
+  display: block;
+  text-align: center;
+  color: var(--color-text);
+  padding: var(--space-3);
+  background: var(--color-surface-offset);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  cursor: zoom-in;
+}
+.place-map-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+}
+.place-map-preview span {
+  display: block;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  margin-top: var(--space-2);
+}
+.place-map-preview:hover,
+.place-map-preview:focus-visible { border-color: var(--color-gold); }
+
 .gallery-overlay {
   position: fixed;
   inset: 0;
