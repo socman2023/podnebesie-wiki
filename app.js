@@ -954,6 +954,21 @@
   function openModal(type, data) {
     modalBody.innerHTML = buildModalContent(type, data);
 
+    // Bind article-to-article navigation in location details.
+    modalBody.querySelectorAll('[data-place-id], [data-character-id]').forEach(chip => {
+      const follow = () => {
+        if (chip.dataset.placeId) {
+          const place = D.places.find(p => p.id === chip.dataset.placeId);
+          if (place) openModal('place', place);
+        } else if (chip.dataset.characterId) {
+          const char = D.characters.find(c => c.id === chip.dataset.characterId);
+          if (char) openModal('character', char);
+        }
+      };
+      chip.addEventListener('click', follow);
+      chip.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); follow(); } });
+    });
+
     // Bind relation chip clicks
     modalBody.querySelectorAll('[data-rel-id]').forEach(chip => {
       chip.addEventListener('click', () => {
@@ -1099,6 +1114,33 @@
     `;
   }
 
+
+  // Optional canonical encyclopedic subsections and cross-article links.
+  function buildCanonSections(item) {
+    if (!Array.isArray(item.sections)) return '';
+    return item.sections.filter(s => s && s.title && s.text).map(s =>
+      '<div class="modal-divider"></div>' +
+      '<div class="modal-section-label">' + esc(s.title) + '</div>' +
+      '<p class="modal-text">' + esc(s.text) + '</p>'
+    ).join('');
+  }
+
+  function buildPlaceRelations(place) {
+    const locations = (place.relatedPlaces || []).map(rel => {
+      const match = D.places.find(p => p.id === rel.id);
+      return match ? '<div class="relation-chip" role="button" tabindex="0" data-place-id="' + esc(match.id) + '"><span class="relation-name">' +
+        esc(match.name) + '</span><span class="relation-label">' + esc(rel.label || '') + '</span></div>' : '';
+    }).join('');
+    const people = (place.relatedCharacters || []).map(rel => {
+      const match = D.characters.find(c => c.id === rel.id);
+      return match ? '<div class="relation-chip" role="button" tabindex="0" data-character-id="' + esc(match.id) + '"><span class="relation-name">' +
+        esc(match.name) + '</span><span class="relation-label">' + esc(rel.label || '') + '</span></div>' : '';
+    }).join('');
+    return locations || people ?
+      '<div class="modal-divider"></div><div class="modal-section-label">Связанные статьи</div><div class="modal-relations">' +
+      locations + people + '</div>' : '';
+  }
+
   function buildCharModal(char) {
     const groupLabel = { hero: 'Главный герой', teacher: 'Учитель', student: 'Ученик', staff: 'Персонал', npc: 'НПС' };
 
@@ -1133,6 +1175,7 @@
       ${char.tags && char.tags.length ? `<div class="modal-divider"></div>${buildTagsHTML(char.tags)}` : ''}
       ${relHTML ? `<div class="modal-divider"></div><div class="modal-section-label">Связи</div><div class="modal-relations">${relHTML}</div>` : ''}
       ${plotHTML ? `<div class="modal-divider"></div><div class="modal-section-label">Сюжетные линии</div><div class="modal-plot-badges">${plotHTML}</div>` : ''}
+      ${buildCanonSections(char)}
     `;
   }
 
@@ -1153,6 +1196,8 @@
           <span>Посмотреть фотографии · ${place.gallery.length}</span>
         </button>
       ` : ''}
+      ${buildCanonSections(place)}
+      ${buildPlaceRelations(place)}
       ${place.tags && place.tags.length ? `<div class="modal-divider"></div>${buildTagsHTML(place.tags)}` : ''}
     `;
   }
