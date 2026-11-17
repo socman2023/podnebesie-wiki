@@ -1616,6 +1616,7 @@ const WIKI_DATA = {
     },
     {
       "id": "lian-sheng",
+      "portrait": "portraits/LAOSHEN.jpg",
       "name": "Лянь Шэн",
       "fullName": "Лянь Шэн, сын императора Да-Луна",
       "role": "Принц (хуанцзы) Да-Луна · Хайн · около 30 лет",
@@ -2085,6 +2086,10 @@ const WIKI_DATA = {
     },
     {
       "id": "da-lun",
+      "mapImage": "images/locations/da-lun/map.jpg",
+      "gallery": [
+        { "src": "images/locations/da-lun/map.jpg", "thumb": "images/locations/da-lun/map.jpg", "caption": "Карта Да-Луна" }
+      ],
       "name": "Да-Лун",
       "type": "Императорское царство",
       "nation": "Хайны",

@@ -1188,7 +1188,14 @@
       <div class="modal-divider"></div>
       <div class="modal-section-label">Подробнее</div>
       <p class="modal-text">${esc(place.details || '—')}</p>
-      ${Array.isArray(place.gallery) && place.gallery.length ? `
+      ${place.mapImage && Array.isArray(place.gallery) && place.gallery.length ? `
+        <div class="modal-divider"></div>
+        <div class="modal-section-label">Карта</div>
+        <button type="button" class="place-map-preview" data-gallery-open aria-label="Открыть карту ${esc(place.name)} крупно">
+          <img src="${esc(place.mapImage)}" alt="Карта ${esc(place.name)}" loading="lazy" decoding="async">
+          <span>Открыть карту крупно</span>
+        </button>
+      ` : Array.isArray(place.gallery) && place.gallery.length ? `
         <div class="modal-divider"></div>
         <div class="modal-section-label">Фотоальбом</div>
         <button type="button" class="place-gallery-open" data-gallery-open>

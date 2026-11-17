@@ -191,6 +191,53 @@ try {
 
       await page.locator('#modalClose').click();
 
+      // Approved LAOSHEN portrait and full country map must load on every layout.
+      await page.locator('[data-tab="characters"]').click();
+      const princeCard = page.locator('#grid-npcs .card').filter({
+        has: page.locator('.card-name', { hasText: /^Лянь Шэн$/ })
+      });
+      if (await princeCard.count() !== 1) issues.push(key + ': Prince card missing or duplicated');
+      const princePortrait = princeCard.locator('img.card-portrait');
+      await princePortrait.waitFor({ state: 'visible' });
+      await princePortrait.evaluate(img => img.decode());
+      if (!(await princePortrait.evaluate(img => img.complete && img.naturalWidth === 1024 && img.naturalHeight === 1024))) {
+        issues.push(key + ': LAOSHEN portrait missing or wrong dimensions');
+      }
+      await princeCard.click();
+      const princeModalPortrait = page.locator('#modalBody img.modal-portrait');
+      await princeModalPortrait.waitFor({ state: 'visible' });
+      if (!(await princeModalPortrait.evaluate(img => img.src.endsWith('/portraits/LAOSHEN.jpg') && img.complete && img.naturalWidth > 0))) {
+        issues.push(key + ': Prince modal portrait missing');
+      }
+      await page.locator('#modalClose').click();
+
+      await page.locator('[data-tab="places"]').click();
+      const daLunMapCard = page.locator('#grid-places .card').filter({
+        has: page.locator('.card-name', { hasText: /^Да-Лун$/ })
+      });
+      await daLunMapCard.click();
+      const mapPreview = page.locator('#modalBody .place-map-preview img');
+      await mapPreview.waitFor({ state: 'visible' });
+      await mapPreview.evaluate(img => img.decode());
+      const mapCheck = await mapPreview.evaluate(img => ({
+        width: img.naturalWidth, height: img.naturalHeight, url: img.currentSrc,
+        ratio: img.getBoundingClientRect().width / img.getBoundingClientRect().height
+      }));
+      if (!mapCheck.url.endsWith('/images/locations/da-lun/map.jpg') ||
+          mapCheck.width !== 1536 || mapCheck.height !== 1024 ||
+          Math.abs(mapCheck.ratio - 1.5) > 0.025) {
+        issues.push(key + ': Da-Lun map missing or distorted');
+      }
+      await page.locator('#modalBody .place-map-preview').click();
+      await page.waitForFunction(() => {
+        const img = document.getElementById('galleryPhoto');
+        return img?.complete && img.naturalWidth === 1536 && img.naturalHeight === 1024;
+      });
+      if ((await caption.innerText()) !== 'Карта Да-Луна') issues.push(key + ': map gallery caption incorrect');
+      await page.keyboard.press('Escape');
+      if (await overlay.isVisible()) issues.push(key + ': Da-Lun map did not close');
+      await page.locator('#modalClose').click();
+
       // Da-Lun article structure and 21-photo Lунцзин gallery.
       const canonChecks = await page.evaluate(() => {
         const expectedPlaces = ['da-lun', 'great-wall', 'longjing', 'jinshui'];
