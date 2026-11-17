@@ -33,7 +33,7 @@ try {
         const chars = WIKI_DATA.characters;
         const cards = [...document.querySelectorAll('#section-characters .card, #section-characters .student-card')];
         const errors = [];
-        if (chars.length !== 107) errors.push('Unexpected character count: ' + chars.length);
+        if (chars.length !== 108) errors.push('Unexpected character count: ' + chars.length);
         if (!chars.some(c => c.name === 'Люций Грейвард')) errors.push('Люций Грейвард not renamed');
         if (chars.some(c => c.name === 'Инквизитор Грейвард')) errors.push('Old name still in data');
         for (const char of chars) {
@@ -188,6 +188,61 @@ try {
       if ((await caption.innerText()) !== 'Карта Лучинца') issues.push(key + ': Luchinets map is not last photo');
       await page.keyboard.press('Escape');
       if (await overlay.isVisible()) issues.push(key + ': Luchinets Escape did not close gallery');
+
+      await page.locator('#modalClose').click();
+
+      // Da-Lun article structure and 21-photo Lунцзин gallery.
+      const canonChecks = await page.evaluate(() => {
+        const expectedPlaces = ['da-lun', 'great-wall', 'longjing', 'jinshui'];
+        const ids = new Set(WIKI_DATA.places.map(p => p.id));
+        const records = WIKI_DATA.places.filter(p => expectedPlaces.includes(p.id));
+        const prince = WIKI_DATA.characters.find(c => c.id === 'lian-sheng');
+        const hain = WIKI_DATA.nations.find(n => n.id === 'hain');
+        return {
+          missing: expectedPlaces.filter(id => !ids.has(id)),
+          sections: records.map(p => ({id:p.id, count:p.sections?.length || 0})),
+          prince: !!prince,
+          nation: !!hain,
+          photos: WIKI_DATA.places.find(p => p.id === 'longjing')?.gallery?.length || 0
+        };
+      });
+      if (canonChecks.missing.length) issues.push(key + ': missing Da-Lun locations ' + canonChecks.missing.join(','));
+      if (canonChecks.sections.some(p => p.count < 1)) issues.push(key + ': article sections missing');
+      if (!canonChecks.prince || !canonChecks.nation) issues.push(key + ': Da-Lun prince or nation missing');
+      if (canonChecks.photos !== 21) issues.push(key + ': expected 21 Longjing images, got ' + canonChecks.photos);
+
+      const dalunCard = page.locator('#grid-places .card').filter({
+        has: page.locator('.card-name', { hasText: /^Да-Лун$/ })
+      });
+      if (await dalunCard.count() !== 1) issues.push(key + ': Da-Lun card not unique');
+      await dalunCard.click();
+      if (!(await page.locator('#modalBody .modal-section-label', { hasText: 'Власть и двор' }).isVisible())) {
+        issues.push(key + ': Da-Lun article details not rendered');
+      }
+      const capitalLink = page.locator('#modalBody [data-place-id="longjing"]');
+      if (!(await capitalLink.isVisible())) issues.push(key + ': missing capital article link');
+      await capitalLink.click();
+      if ((await page.locator('#modalTitle').innerText()) !== 'Лунцзин') {
+        issues.push(key + ': Da-Lun to Longjing link failed');
+      }
+      const longjingButton = page.locator('#modalBody [data-gallery-open]');
+      if (!(await longjingButton.isVisible())) issues.push(key + ': missing Longjing gallery button');
+      await longjingButton.click();
+      for (let i = 1; i <= 21; i++) {
+        const number = String(i).padStart(2, '0');
+        await page.waitForFunction(number => {
+          const img = document.getElementById('galleryPhoto');
+          return img?.src.endsWith('/longjing/' + number + '.webp') &&
+            img.complete && img.naturalWidth > 0;
+        }, number);
+        if ((await counter.innerText()) !== i + ' / 21') {
+          issues.push(key + ': Longjing photo counter mismatch at ' + i);
+        }
+        await page.locator('#galleryNext').click();
+      }
+      if ((await counter.innerText()) !== '1 / 21') issues.push(key + ': Longjing gallery wrap failed');
+      await page.keyboard.press('Escape');
+      if (await overlay.isVisible()) issues.push(key + ': Longjing gallery did not close');
       await page.locator('#modalClose').click();
       await page.close();
       console.log(`PASS browser checks ${key}`);
